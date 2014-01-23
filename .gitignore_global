@@ -1,0 +1,6 @@
+*.swp
+*.lvimrc
+*.pyc
+.deps
+.ruby-*
+.svn

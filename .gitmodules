@@ -1,0 +1,15 @@
+[submodule "lib/solarized"]
+	path = lib/solarized
+	url = https://github.com/altercation/solarized.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".config/awesome/awesomewm-config"]
+	path = .config/awesome/awesomewm-config
+	url = https://github.com/Stebalien/awesomewm-config.git
+[submodule "lib/p"]
+	path = lib/p
+	url = https://github.com/spacez320/p.git
+[submodule "lib/oh-my-zsh"]
+	path = lib/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git

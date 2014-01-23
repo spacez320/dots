@@ -1,0 +1,51 @@
+# Xft settings
+Xft*dpi: 96
+Xft*antialias: true
+Xft*rgba: rgb
+Xft*hinting: true
+
+# URxvt settings
+URxvt*depth: 32
+URxvt*geometry: 90x30
+URxvt*background: #00171e
+URxvt*transparent: true
+URxvt*shading: 10
+URxvt*fading: false
+URxvt*font: xft:Inconsolata for Powerline:size=10
+URxvt*scrollBar: false
+URxvt*internalBorder: 3
+URxvt*lineSpace: 0
+URxvt*loginShell: true
+URxvt.cursorBlink: true
+URxvt.cursorcolor: #657b83
+URxvt.cursorUnderline: false
+
+# Solarized
+*background: #00171e
+*foreground: #657b83
+*fadeColor: #00171e
+*cursorColor: #93a1a1
+!black
+*color0: #073642
+*color8: #00171e
+!red
+*color1: #dc322f
+*color9: #cb4b16
+!green
+*color2: #859900
+*color10: #586e75
+!yellow
+*color3: #b58900
+*color11: #657b83
+!blue
+*color4: #268bd2
+*color12: #839496
+!magenta
+*color5: #d33682
+*color13: #6c71c4
+!cyan
+*color6: #2aa198
+*color14: #93a1a1
+!white
+*color7: #eee8df
+*color15: #fdf6e3

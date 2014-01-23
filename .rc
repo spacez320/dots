@@ -1,0 +1,22 @@
+# .rc
+#
+# Shell agnostic non-login configuration.
+
+### General
+
+set -o vi
+PROMPT_COMMAND="history -a;"
+
+### Aliases
+
+alias ipext='curl -s icanhazip.com'
+alias dateo='date +%Y%m%d%H%M%S'
+alias rm='rm -i'
+alias django='python manage.py'
+alias steam='STEAM_RUNTIME=1 steam'
+alias srv='python -m SimpleHTTPServer'
+alias gd='git diff --full-index master HEAD'
+alias gh='history -n 2> /dev/null'
+alias firefox='firefox -new-window'
+alias chromium='chromium --incognito'
+alias nl='netstat -ltn'

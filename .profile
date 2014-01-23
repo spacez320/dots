@@ -1,0 +1,3 @@
+# .profile
+#
+# Log-in configuration.
