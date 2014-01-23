@@ -44,6 +44,7 @@ vmap ,c :s/^/#/g<CR> :nohl<CR>
 vmap ,u :s/^#//g<CR> :nohl<CR>
 
 " pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " colors

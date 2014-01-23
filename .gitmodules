@@ -13,3 +13,30 @@
 [submodule "lib/oh-my-zsh"]
 	path = lib/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "/home/mcoleman/.config/awesome/vicious"]
+	path = /home/mcoleman/.config/awesome/vicious
+	url = http://git.sysphere.org/vicious
+[submodule "lib/vim-colors-solarized"]
+	path = lib/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/zenburn"]
+	path = .vim/bundle/zenburn
+	url = https://github.com/jnurmine/Zenburn.git
+[submodule ".vim/bundle/tlib_vim"]
+	path = .vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/vim-addon-mw-utils"]
+	path = .vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/bundle/vim-snipmate"]
+	path = .vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
