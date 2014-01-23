@@ -8,7 +8,6 @@ export EDITOR=/usr/bin/vim
 export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 export PATH="$PATH:$HOME/bin:$HOME/lib/p:/usr/local/heroku/bin"
 export TZ="America/New_York"
-export LANG=en_US.utf8
 export AWESOME_SHELL="urxvt256c-ml"
 export POWERLINE="/usr/lib/python2.7/site-packages/powerline/bindings"
 unset PAGER
