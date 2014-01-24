@@ -7,6 +7,13 @@
 set -o vi
 PROMPT_COMMAND="history -a;"
 
+### Sources
+
+# RVM
+if [ -f $HOME/.rvm/scripts/rvm ]; then
+  . $HOME/.rvm/scripts/rvm
+fi
+
 ### Aliases
 
 alias ipext='curl -s icanhazip.com'
