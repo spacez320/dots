@@ -27,3 +27,23 @@ alias gh='history -n 2> /dev/null'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
 alias nl='netstat -ltn'
+alias pa='puppet agent -t'
+alias pe='puppet agent -t --environment='
+
+### Functions
+
+function pr() {
+  local environment="production"
+  [ -n "$1" ] && environment="$1"
+
+  for cmd in \
+    "--disable" \
+    "--enable" \
+    "-t --environment=$environment ${@:2}" \
+    "--disable"; do
+    if $cmd; then
+      echo "$cmd failed!"
+      return 1
+    fi
+  done
+}
