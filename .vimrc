@@ -42,6 +42,7 @@ map <c-h> :set hlsearch!<CR>
 vmap ,x :!tidy -q -i --show-errors 0<CR>
 vmap ,c :s/^/#/g<CR> :nohl<CR>
 vmap ,u :s/^#//g<CR> :nohl<CR>
+vnoremap . :normal .<CR>
 
 " pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
