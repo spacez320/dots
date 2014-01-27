@@ -27,9 +27,6 @@ au BufWinEnter ?* silent loadview
 " preserve the window when leaving vim
 au VimLeave * :!clear
 
-" source clostag for appropriate filees
-au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
-
 " sane spacing
 set tabstop=2
 set shiftwidth=2
