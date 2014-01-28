@@ -45,7 +45,7 @@ function pe() {
   local environment="production"
   [ -n "$1" ] && environment=$1 && shift
 
-  local passargs
+  local passargs=
   (( $# > 0 )) && passargs="$@"
 
   pen && \
