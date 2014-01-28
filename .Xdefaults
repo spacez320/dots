@@ -9,7 +9,7 @@ URxvt*depth: 32
 URxvt*geometry: 90x30
 URxvt*background: #00171e
 URxvt*transparent: true
-URxvt*shading: 10
+URxvt*shading: 25
 URxvt*fading: false
 URxvt*font: xft:Inconsolata for Powerline:size=10
 URxvt*scrollBar: false
