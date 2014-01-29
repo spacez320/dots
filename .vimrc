@@ -68,22 +68,9 @@ command W w !sudo tee % > /dev/null
 
 " shortcut for BufWritePost autocmd
 augroup runtime
-  command -nargs=1 P :au runtime BufWritePost * <args> 
+  command -nargs=1 P :au runtime BufWritePost * <args>
   command O :au! runtime
 augroup end
-
-" inline pandoc 
-" pandoc -f <from> -t <to> <...>
-if !exists("g:pandoc")
-  let g:pandoc = "pandoc"
-endif
-function Pandoc(from,to,...)
-  let tmp = tempname()
-  execute "silent !".g:pandoc." -f ".a:from." -t ".a:to." ".join(a:000)." % 2> /dev/null > ".tmp
-  silent !clear
-  execute "silent ![ -s ".tmp." ] && cp ".tmp." %"
-endfunction
-command -nargs=+ Pandoc call Pandoc(<f-args>)
 
 " source any .lvimrc files
 if filereadable("./.lvimrc")
