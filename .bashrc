@@ -6,7 +6,7 @@
 
 # global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # general rc import
