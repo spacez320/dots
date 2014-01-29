@@ -19,6 +19,7 @@ set ls=2
 set cc=80
 set list
 set listchars=tab:»·,trail:·
+set smartcase
 
 " auto views
 au BufWinLeave ?* mkview
