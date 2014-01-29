@@ -8,7 +8,7 @@ main() {
   dd if=/dev/urandom of=$checksum bs=1M count=10 2> /dev/null
 
   # do backup
-  obnam backup
+  obnam backup && \
 
   # verify
   obnam verify `dirname $checksum`
