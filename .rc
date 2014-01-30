@@ -16,6 +16,8 @@ fi
 
 ### Aliases
 
+alias less='less -R'
+alias grep='grep --color=always'
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
 alias rm='rm -i'
