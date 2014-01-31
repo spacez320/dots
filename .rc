@@ -59,3 +59,19 @@ function pe() {
   pt --environment=${environment} ${passargs} && \
   pdn
 }
+
+# runs a name-only diff between local and remote filesystems
+function rdiff() {
+
+  if (( $# < 2 )); then echo "Usage: rdiff <source> <dest>"; return 1; fi
+
+  while read line; do
+    echo "< $(awk -F ' ' '{ print $2 }' <<< $(echo $line))"
+  done <<< \
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run $2 $1)"
+
+  while read line; do
+    echo "> $(awk -F' ' '{ print $2 }' <<< $(echo $line))"
+  done <<< \
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run $1 $2)"
+}
