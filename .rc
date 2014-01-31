@@ -16,18 +16,21 @@ fi
 
 ### Aliases
 
+# commands
 alias less='less -R'
 alias grep='grep --color=always'
+alias rm='rm -i'
+alias steam='STEAM_RUNTIME=1 steam'
+alias firefox='firefox -new-window'
+alias chromium='chromium --incognito'
+
+# shortcuts
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
-alias rm='rm -i'
 alias django='python manage.py'
-alias steam='STEAM_RUNTIME=1 steam'
 alias srv='python -m SimpleHTTPServer'
 alias gd='git diff --full-index master HEAD'
 alias gh='history -n 2> /dev/null'
-alias firefox='firefox -new-window'
-alias chromium='chromium --incognito'
 alias nl='netstat -ltn'
 alias pa='sudo puppet agent'
 alias pt='pa -t'
