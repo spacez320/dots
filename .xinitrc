@@ -7,4 +7,6 @@ if [ -f $HOME/.Xmodmap ]; then
 fi
 
 # auto starts
-xscreensaver -no-splash &
+if ! pgrep xscreensaver > /dev/null; then
+  xscreensaver -no-splash &
+fi
