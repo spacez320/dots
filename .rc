@@ -62,16 +62,27 @@ function pe() {
 
 # runs a name-only diff between local and remote filesystems
 function rdiff() {
+  if (( $# < 2 )); then
+    echo "Usage: rdiff <source> <dest> [args]";
+    return 1;
+  fi
 
-  if (( $# < 2 )); then echo "Usage: rdiff <source> <dest>"; return 1; fi
+  local source=$1;
+  local dest=$2;
+  shift && shift
+
+  local passargs=
+  (( $# > 0 )) && passargs="$@"
 
   while read line; do
     echo "< $(awk -F ' ' '{ print $2 }' <<< $(echo $line))"
   done <<< \
-    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run $2 $1)"
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
+      $passargs $dest $source)"
 
   while read line; do
     echo "> $(awk -F' ' '{ print $2 }' <<< $(echo $line))"
   done <<< \
-    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run $1 $2)"
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
+    $passargs $source $dest)"
 }
