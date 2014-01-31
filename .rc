@@ -76,13 +76,13 @@ function rdiff() {
   (( $# > 0 )) && passargs="$@"
 
   while read line; do
-    echo "< $(awk -F ' ' '{ print $2 }' <<< $(echo $line))"
+    echo "> $(awk -F ' ' '{ print $2 }' <<< $(echo $line))"
   done <<< \
     "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
       $passargs $dest $source)"
 
   while read line; do
-    echo "> $(awk -F' ' '{ print $2 }' <<< $(echo $line))"
+    echo "< $(awk -F' ' '{ print $2 }' <<< $(echo $line))"
   done <<< \
     "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
     $passargs $source $dest)"
