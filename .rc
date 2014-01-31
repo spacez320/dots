@@ -39,6 +39,7 @@ alias pdn='pa --disable'
 
 ### Functions
 
+# runs puppet with an optional environment
 function pr() {
   local environment="production"
   [ -n "$1" ] && environment="$1"
@@ -46,6 +47,7 @@ function pr() {
   pt --environment="${environment}"
 }
 
+# freezes puppet into an optional environment
 function pe() {
   local environment="production"
   [ -n "$1" ] && environment=$1 && shift
