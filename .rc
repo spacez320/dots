@@ -25,6 +25,7 @@ alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
 
 # shortcuts
+alias unmerge='emerge --unmerge'
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
 alias django='python manage.py'
