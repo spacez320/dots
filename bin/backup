@@ -11,7 +11,7 @@ main() {
   obnam --quiet backup && \
 
   # verify
-  obnam --quiet verify `dirname $checksum`
+  obnam --quiet verify `dirname $checksum` 1> /dev/null
 
 }
 
