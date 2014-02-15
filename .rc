@@ -6,6 +6,7 @@
 
 set -o vi
 PROMPT_COMMAND="history -a;"
+trap 'echo -ne "\033]0;${USER}@${HOSTNAME}\007"' DEBUG
 
 ### Sources
 
@@ -17,6 +18,7 @@ fi
 ### Aliases
 
 # commands
+alias ls='ls --color=never'
 alias less='less -R'
 alias grep='grep --color=always'
 alias rm='rm -i'

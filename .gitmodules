@@ -46,3 +46,6 @@
 [submodule "lib/mutt-colors-solarized"]
 	path = lib/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
+[submodule ".vim/bundle/mirodark"]
+	path = .vim/bundle/mirodark
+	url = https://github.com/djjcast/mirodark.git

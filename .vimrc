@@ -48,14 +48,14 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " colors
-if system('echo $RANDOM') < 16383
-  colorscheme solarized
-else
-  let g:zenburn_high_Contrast = 1
-  colorscheme zenburn
-  hi ColorColumn ctermbg=235 guibg=#2c2d27
-endif
-set background=dark
+"if system('echo $RANDOM') < 16383
+"  colorscheme solarized
+"else
+"  let g:zenburn_high_Contrast = 1
+"  colorscheme zenburn
+"  hi ColorColumn ctermbg=235 guibg="2c2d27
+"endif
+colorscheme mirodark
 
 " syntastic
 set statusline+=%#warningmsg#

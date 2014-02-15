@@ -17,9 +17,9 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_normal = "#030609"
+theme.border_focus  = "#8fb3d8"
+theme.border_marked = "#8fb3d8"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -89,9 +89,6 @@ theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
 theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
 theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
 theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
-
-theme.widget_net = "/home/matthew/.config/awesome/sanscons/icons/png/light_gray/16x16/arrow2_s.png"
-theme.widget_netup= "/home/matthew/.config/awesome/sanscons/icons/png/light_gray/16x16/arrow2_n.png"
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
