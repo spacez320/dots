@@ -58,7 +58,7 @@ function pe() {
   (( $# > 0 )) && passargs="$@"
 
   pen && \
-  pt --environment=${environment} ${passargs} && \
+  pt --environment=${environment} ${passargs}
   pdn
 }
 
