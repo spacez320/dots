@@ -37,6 +37,7 @@ alias pa='sudo puppet agent'
 alias pt='pa -t'
 alias pen='pa --enable'
 alias pdn='pa --disable'
+alias wp='$HOME/.wp-cli/bin/wp'
 
 ### Functions
 
