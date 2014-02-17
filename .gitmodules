@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/mirodark"]
 	path = .vim/bundle/mirodark
 	url = https://github.com/djjcast/mirodark.git
+[submodule ".vim/bundle/dart-vim-plugin"]
+	path = .vim/bundle/dart-vim-plugin
+	url = https://github.com/dart-lang/dart-vim-plugin.git
