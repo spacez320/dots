@@ -4,3 +4,4 @@
 .deps
 .ruby-*
 .svn
+.opt
