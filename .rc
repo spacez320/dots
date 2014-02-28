@@ -44,6 +44,21 @@ alias wp='$HOME/.wp-cli/bin/wp'
 
 ### Functions
 
+# downloads a website for offline use
+function dlweb() {
+
+  wget \
+    --recursive \
+    --no-clobber \
+    --page-requisites \
+    --adjust-extension \
+    --convert-links
+    --domains "$1"
+    --tries=10
+    "$1"
+
+}
+
 # runs puppet with an optional environment
 function pr() {
   local environment="production"
