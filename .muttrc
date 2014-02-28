@@ -1,3 +1,5 @@
+auto_view text/html
+
 set sort = threads
 set sort_aux = reverse-date-received
 set move = no
