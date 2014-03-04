@@ -6,7 +6,7 @@
 
 set -o vi
 PROMPT_COMMAND="history -a;"
-[ $TERM == "rxvt-unicode-256color" ] && \
+[[ $TERM == "rxvt-unicode-256color" ]] && \
   trap 'echo -ne "\033]0;${USER}@${HOSTNAME}\007"' DEBUG
 
 ### Sources
