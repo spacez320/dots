@@ -13,9 +13,6 @@ export POWERLINE="/usr/lib/python2.7/site-packages/powerline/bindings"
 unset PAGER
 unset RUBYOPT
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # keychain
 if [ $(command -v keychain) ] && [ $SSH_KEYS ]; then
   for key in $(eval echo $SSH_KEY); do
