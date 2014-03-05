@@ -20,6 +20,7 @@ set cc=80
 set list
 set listchars=tab:»·,trail:·
 set smartcase
+set dir=~/.swp
 
 " auto views
 au BufWinLeave ?* mkview
