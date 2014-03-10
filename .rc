@@ -54,6 +54,21 @@ function dlweb() {
 
 }
 
+function arise() {
+  if [ "$1" = "chicken" ]; then
+    if [ "arise" = "$2" ]; then echo 'arise chicken';
+    else echo 'arise chicken arise'; fi
+    return 0
+  fi
+  if [ "arise" != "$2" ]; then
+    echo 'hold on, stick upside-down'
+    return 1;
+  fi
+  if command -v $1 &>/dev/null; then
+    $1&
+  fi
+}
+
 # runs puppet with an optional environment
 function pr() {
   local environment="production"
