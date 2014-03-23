@@ -55,3 +55,6 @@
 [submodule "lib/xfce4-terminal-colors-solarized"]
 	path = lib/xfce4-terminal-colors-solarized
 	url = https://github.com/sgerrand/xfce4-terminal-colors-solarized.git
+[submodule ".vim/bundle/codeschool-vim-theme"]
+	path = .vim/bundle/codeschool-vim-theme
+	url = https://github.com/29decibel/codeschool-vim-theme.git
