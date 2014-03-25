@@ -41,7 +41,6 @@ alias wp='$HOME/.wp-cli/bin/wp'
 
 # downloads a website for offline use
 function dlweb() {
-
   wget \
     --recursive \
     --no-clobber \
@@ -51,9 +50,9 @@ function dlweb() {
     --domains "$1"
     --tries=10
     "$1"
-
 }
 
+# billythewitchdoctor.com
 function arise() {
   if [ "$1" = "chicken" ]; then
     if [ "arise" = "$2" ]; then echo 'arise chicken';
@@ -88,6 +87,15 @@ function pe() {
   pen && \
   pt --environment=${environment} ${passargs}
   pdn
+}
+
+# pause for an enter
+function pause() {
+  if grep 'bash' <<< $(echo $SHELL); then
+    read -p "Press enter to continue."
+  else
+    read \?"Press enter to continue." 
+  fi
 }
 
 # runs a name-only diff between local and remote filesystems
