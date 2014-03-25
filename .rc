@@ -17,6 +17,7 @@ PROMPT_COMMAND="history -a;"
 alias ls='ls --color=never'
 alias less='less -R'
 alias grep='grep --color=always'
+alias egrep='egrep --color=always'
 alias rm='rm -i'
 alias steam='STEAM_RUNTIME=1 steam'
 alias firefox='firefox -new-window'
@@ -30,14 +31,18 @@ alias django='python manage.py'
 alias srv='python -m SimpleHTTPServer'
 alias gd='git diff --full-index master HEAD'
 alias gh='history -n 2> /dev/null'
-alias nl='netstat -ltn'
-alias pa='sudo puppet agent'
-alias pt='pa -t'
-alias pen='pa --enable'
-alias pdn='pa --disable'
-alias wp='$HOME/.wp-cli/bin/wp'
+alias nl='netstat -ltnp'
 
 ### Functions
+
+# pause for an enter
+function pause() {
+  if grep 'bash' <<< $(echo $SHELL); then
+    read -p "Press enter to continue."
+  else
+    read \?"Press enter to continue." 
+  fi
+}
 
 # downloads a website for offline use
 function dlweb() {
@@ -68,36 +73,6 @@ function arise() {
   fi
 }
 
-# runs puppet with an optional environment
-function pr() {
-  local environment="production"
-  [ -n "$1" ] && environment="$1"
-
-  pt --environment="${environment}"
-}
-
-# freezes puppet into an optional environment
-function pe() {
-  local environment="production"
-  [ -n "$1" ] && environment=$1 && shift
-
-  local passargs=
-  (( $# > 0 )) && passargs="$@"
-
-  pen && \
-  pt --environment=${environment} ${passargs}
-  pdn
-}
-
-# pause for an enter
-function pause() {
-  if grep 'bash' <<< $(echo $SHELL); then
-    read -p "Press enter to continue."
-  else
-    read \?"Press enter to continue." 
-  fi
-}
-
 # runs a name-only diff between local and remote filesystems
 function rdiff() {
   if (( $# < 2 )); then
@@ -123,4 +98,50 @@ function rdiff() {
   done <<< \
     "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
     $passargs $source $dest)"
+}
+
+### Wordpress
+
+alias wp='$HOME/.wp-cli/bin/wp'
+alias wp_addme='wp user create mcoleman mcoleman@wayfair.com --role=administrator --user_pass=tgtuelij2lablir'
+
+# reset wordpress hostname
+function wp_url() {
+  [[ -z $1 ]] && return 1
+
+  local sql=/tmp/wp.out.sql
+  local old_url=`wp option get siteurl`
+  local new_url=$1
+
+  wp db export $sql && \
+  sed -i "s,$old_url,$new_url,g" $sql && \
+  wp db import $sql
+}
+
+### Puppet
+
+alias pa='sudo puppet agent'
+alias pt='pa -t'
+alias pen='pa --enable'
+alias pdn='pa --disable'
+
+# runs puppet with an optional environment
+function pr() {
+  local environment="production"
+  [ -n "$1" ] && environment="$1"
+
+  pt --environment="${environment}"
+}
+
+# freezes puppet into an optional environment
+function pe() {
+  local environment="production"
+  [ -n "$1" ] && environment=$1 && shift
+
+  local passargs=
+  (( $# > 0 )) && passargs="$@"
+
+  pen && \
+  pt --environment=${environment} ${passargs}
+  pdn
 }
