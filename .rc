@@ -22,6 +22,7 @@ alias rm='rm -i'
 alias steam='STEAM_RUNTIME=1 steam'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
+alias t='python ~/mnt/deontos/t/src/t.py --task-dir ~/mnt/deontos/t --list general'
 
 # shortcuts
 alias unmerge='emerge --unmerge'
