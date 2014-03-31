@@ -32,6 +32,7 @@ alias srv='python -m SimpleHTTPServer'
 alias gd='git diff --full-index master HEAD'
 alias gh='history -n 2> /dev/null'
 alias nl='netstat -ltnp'
+alias view='vim -R'
 
 ### Functions
 
