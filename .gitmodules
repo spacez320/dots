@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/codeschool-vim-theme"]
 	path = .vim/bundle/codeschool-vim-theme
 	url = https://github.com/29decibel/codeschool-vim-theme.git
+[submodule "/home/mcoleman/.vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
