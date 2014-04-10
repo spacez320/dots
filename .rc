@@ -17,19 +17,15 @@ alias less='less -R'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias rm='rm -i'
-alias steam='STEAM_RUNTIME=1 steam'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
-alias t='python ~/mnt/deontos/t/src/t.py --task-dir ~/mnt/deontos/t --list general'
 
 # shortcuts
-alias unmerge='emerge --unmerge'
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
 alias django='python manage.py'
 alias srv='python -m SimpleHTTPServer'
-alias gd='git diff --full-index master HEAD'
-alias gh='history -n 2> /dev/null'
+alias hn='history -n 2> /dev/null'
 alias nl='netstat -ltnp'
 alias view='vim -R'
 
@@ -40,7 +36,7 @@ function pause() {
   if grep 'bash' <<< $(echo $SHELL); then
     read -p "Press enter to continue."
   else
-    read \?"Press enter to continue." 
+    read \?"Press enter to continue."
   fi
 }
 
