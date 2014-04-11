@@ -99,7 +99,6 @@ function rdiff() {
 ### Wordpress
 
 alias wp='$HOME/.wp-cli/bin/wp'
-alias wp_addme='wp user create mcoleman mcoleman@wayfair.com --role=administrator --user_pass=tgtuelij2lablir'
 
 # reset wordpress hostname
 function wp_url() {
@@ -141,3 +140,7 @@ function pe() {
   pt --environment=${environment} ${passargs}
   pdn
 }
+
+### Source
+
+. $HOME/.rc.d/*
