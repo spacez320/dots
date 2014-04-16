@@ -1,0 +1,15 @@
+alias wp='$HOME/.wp-cli/bin/wp'
+
+# reset wordpress hostname
+function wp_url() {
+  [[ -z $1 ]] && return 1
+
+  local sql=/tmp/wp.out.sql
+  local old_url=`wp option get siteurl`
+  local new_url=$1
+
+  wp db export $sql && \
+  sed -i "s,$old_url,$new_url,g" $sql && \
+  wp db import $sql
+}
+

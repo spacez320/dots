@@ -143,4 +143,4 @@ function pe() {
 
 ### Source
 
-. $HOME/.rc.d/*
+[[ -n `find $HOME/.rc.d/ -not -name '.*'` ]] && . $HOME/.rc.d/*
