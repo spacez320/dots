@@ -61,3 +61,6 @@
 [submodule "/home/mcoleman/.vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "lib/t"]
+	path = lib/t
+	url = hg::https://bitbucket.org/sjl/t
