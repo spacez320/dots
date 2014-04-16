@@ -21,3 +21,7 @@ if [ $(command -v keychain) ] && [ $SSH_KEYS ]; then
     . ~/.keychain/"$HOSTNAME"-sh-gpg
   done
 fi
+
+### Source
+
+[[ -n `find $HOME/.shell.d/ -not -name '.*'` ]] && . $HOME/.shell.d/*
