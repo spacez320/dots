@@ -13,6 +13,9 @@ main() {
   # verify
   obnam --quiet verify `dirname $checksum` 1> /dev/null
 
+  # forget
+  obnam forget
+
 }
 
 main
