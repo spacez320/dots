@@ -99,4 +99,4 @@ function rdiff() {
 
 ### Source
 
-[[ -n `find $HOME/.rc.d/ -not -name '.*'` ]] && . $HOME/.rc.d/*
+for f in $HOME/.rc.d/*; do . $f; done
