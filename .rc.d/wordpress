@@ -1,5 +1,9 @@
 alias wp='$HOME/.wp-cli/bin/wp'
 
+function wp_addme() {
+  wp user add $USER '$USER@localhost' --role=administrator --user_pass=$USER
+}
+
 # reset wordpress hostname
 function wp_url() {
   [[ -z $1 ]] && return 1
