@@ -16,7 +16,6 @@ set encoding=utf-8
 set incsearch
 set modeline
 set ls=2
-set cc=80
 set list
 set listchars=tab:»·,trail:·
 set smartcase
