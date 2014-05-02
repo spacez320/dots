@@ -28,6 +28,7 @@ alias srv='python -m SimpleHTTPServer'
 alias hn='history -n 2> /dev/null'
 alias nl='netstat -ltnp'
 alias view='vim -R'
+alias xs='xclip -o | xclip -sel clip'
 
 ### Functions
 
