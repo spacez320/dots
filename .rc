@@ -30,6 +30,10 @@ alias nl='netstat -ltnp'
 alias view='vim -R'
 alias xs='xclip -o | xclip -sel clip'
 
+# home_priv
+alias mutt='mutt -F $HOME_PRIV/.muttrc'
+alias gpg='gpg --homedir $HOME_PRIV/.gnupg'
+
 ### Functions
 
 # pause for an enter

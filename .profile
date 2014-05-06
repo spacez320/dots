@@ -11,6 +11,7 @@ export TZ="America/New_York"
 export AWESOME_SHELL="urxvt256c-ml"
 export POWERLINE="/usr/lib/python2.7/site-packages/powerline/bindings"
 export HISTIGNORE=' *'
+export HOME_PRIV="$HOME/mnt/deontos"
 unset PAGER
 unset RUBYOPT
 
