@@ -1,5 +1,5 @@
 ! Colors
-URxvt*background:  #030609
+URxvt*background:  [90]#030609
 URxvt*tintColor:   #030609
 URxvt*foreground:  #8fb3d8
 URxvt*borderColor: #8fb3d8
