@@ -1,7 +1,9 @@
-alias wp='$HOME/.wp-cli/bin/wp'
+alias wp='php $HOME/bin/wp-cli.phar'
 
 function wp_addme() {
-  wp user add $USER '$USER@localhost' --role=administrator --user_pass=$USER
+  read -s PASSWORD
+  wp user create $USER "$USER@local.host" \
+    --role=administrator --user_pass=$PASSWORD
 }
 
 # reset wordpress hostname
