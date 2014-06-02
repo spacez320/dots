@@ -4,10 +4,10 @@ main() {
 
   local checksum=$HOME/checksum/checksum
 
-  # write checksum
+  # checksum
   dd if=/dev/urandom of=$checksum bs=1M count=10 2> /dev/null
 
-  # do backup
+  # backup
   obnam --quiet backup && \
 
   # verify
