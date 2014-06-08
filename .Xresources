@@ -38,7 +38,7 @@ Xft*hinting:    true
 URxvt*depth:            32
 URxvt*geometry:         90x30
 URxvt*transparent:      true
-URxvt*font:             xft:Inconsolata for Powerline:size=10
+URxvt*font:             xft:Inconsolata for Powerline:size=12
 URxvt*scrollBar:        false
 URxvt*internalBorder:   5
 URxvt*lineSpace:        0
