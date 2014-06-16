@@ -4,18 +4,12 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".config/awesome/awesomewm-config"]
-	path = .config/awesome/awesomewm-config
-	url = https://github.com/Stebalien/awesomewm-config.git
 [submodule "lib/p"]
 	path = lib/p
 	url = https://github.com/spacez320/p.git
 [submodule "lib/oh-my-zsh"]
 	path = lib/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".config/awesome/vicious"]
-	path = .config/awesome/vicious
-	url = http://git.sysphere.org/vicious
 [submodule "lib/vim-colors-solarized"]
 	path = lib/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
