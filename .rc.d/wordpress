@@ -15,5 +15,7 @@ function wp_url() {
 
   wp db export $sql && \
   sed -i "s,$old_url,$new_url,g" $sql && \
+  wp db drop && \
+  wp db create && \
   wp db import $sql
 }
