@@ -1,5 +1,4 @@
-alias wp='php $HOME/bin/wp-cli.phar'
-
+# add an administrator to wordpress
 function wp_addme() {
   read -s PASSWORD
   wp user create $USER "$USER@local.host" \
@@ -17,28 +16,4 @@ function wp_url() {
   wp db export $sql && \
   sed -i "s,$old_url,$new_url,g" $sql && \
   wp db import $sql
-}
-
-# install dummy wordpress instance,
-# assumes userdir apache and passwordless mysql db creation for dev_ prefix
-function wp_go() {
-  local dbname=dev_wordpress`date +%Y%m%d%H%M%S`
-  local url="http://localhost/~$USER/sandbox/wordpress"
-  local fs="/home/$USER/workspace/sandbox/wordpress"
-
-  mkdir -p $fs/$dbname && cd $fs/$dbname
-
-  wp core download
-  wp core config \
-    --dbname=$dbname \
-    --dbuser=$USER
-
-  mysql -u $USER <<< "CREATE database $dbname"
-
-  wp core install \
-    --url="$url/$dbname" \
-    --title="$dbname" \
-    --admin_user="$USER" \
-    --admin_password="$USER" \
-    --admin_email="$USER@localhost.com"
 }
