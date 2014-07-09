@@ -1,0 +1,8 @@
+[user]
+	email = matthew@kronos0.net
+	name = Matthew Coleman
+[core]
+	excludesfile = /home/mcoleman/.gitignore_global
+[alias]
+  cf = "!git add . && git commit --amend --no-edit"
+  gp = "!git pull --rebase origin master && git diff --full-index origin/master..HEAD"
