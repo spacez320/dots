@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias pa='sudo puppet agent'
 alias pt='pa -t'
 alias pen='pa --enable'

@@ -1,5 +1,8 @@
-# add an administrator to wordpress
+#!/bin/bash
+
+# add me as an administrator to wordpress
 function wp_addme() {
+  echo "Enter password: "
   read -s PASSWORD
   wp user create $USER "$USER@local.host" \
     --role=administrator --user_pass=$PASSWORD

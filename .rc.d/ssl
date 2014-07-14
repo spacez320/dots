@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# get a list of DNS entries in a san ssl cert
+function san {
+  echo | \
+    openssl s_client -connect $1 | \
+    openssl x509 -noout -text | \
+    grep DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
+}
