@@ -1,9 +1,14 @@
 #!/bin/bash
 
+# get the x509 output of an ssl handshake
+function wx509 {
+  echo |
+    openssl s_client -connect $1:443 | \
+    openssl x509 -noout -text
+}
+
 # get a list of DNS entries in a san ssl cert
 function san {
-  echo | \
-    openssl s_client -connect $1 | \
-    openssl x509 -noout -text | \
-    grep DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
+  wx509 $@ | grep DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
 }
+
