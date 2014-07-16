@@ -6,3 +6,4 @@
 [alias]
   cf = "!git add . && git commit --amend --no-edit"
   gp = "!git pull --rebase origin master && git diff --full-index origin/master..HEAD"
+  rdiff = "!git fetch -qp && for b in `git for-each-ref --format='%(refname:short)' refs/heads/`; do git branch -r | grep $b | grep -v \"HEAD\"; done"
