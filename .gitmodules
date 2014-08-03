@@ -55,9 +55,6 @@
 [submodule "/home/mcoleman/.vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "lib/t"]
-	path = lib/t
-	url = hg::https://bitbucket.org/sjl/t
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
