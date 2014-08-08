@@ -48,6 +48,10 @@ vnoremap . :normal .<CR>
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" commentary
+autocmd FileType nginx set commentstring=#\ %s
+autocmd FileType haproxy set commentstring=#\ %s
+
 " colors
 "colorscheme solarized
 
