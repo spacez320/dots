@@ -82,6 +82,17 @@ augroup runtime
   command O :au! runtime
 augroup end
 
+" produce a column of iterating numbers
+function! ColIter()
+  let a = line('.') - line("'<")
+  let c = virtcol("'<")
+  if a > 0
+    execute 'normal! '.c.'|'.a."\<C-a>"
+  endif
+  normal `<
+endfunction
+vnoremap <C-a> :call ColIter()<CR>
+
 " source any .lvimrc files
 if filereadable("./.lvimrc")
   exe 'source' "./.lvimrc"
