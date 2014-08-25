@@ -37,8 +37,13 @@ alias gpg='gpg --homedir $HOME_PRIV/.gnupg'
 
 ### Functions
 
+# find all files with names containing a string
+fn() {
+  find . -name "*$1*"
+}
+
 # pause for an enter
-function pause() {
+pause() {
   if grep 'bash' <<< $(echo $SHELL); then
     read -p "Press enter to continue."
   else
@@ -47,7 +52,7 @@ function pause() {
 }
 
 # downloads a website for offline use
-function dlweb() {
+dlweb() {
   wget \
     --recursive \
     --no-clobber \
@@ -60,7 +65,7 @@ function dlweb() {
 }
 
 # billythewitchdoctor.com
-function arise() {
+arise() {
   if [ "$1" = "chicken" ]; then
     if [ "arise" = "$2" ]; then echo 'arise chicken';
     else echo 'arise chicken arise'; fi
