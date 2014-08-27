@@ -52,6 +52,7 @@ call pathogen#infect()
 " commentary
 autocmd FileType nginx set commentstring=#\ %s
 autocmd FileType haproxy set commentstring=#\ %s
+autocmd FileType monitrc set commentstring=#\ %s
 
 " colors
 "colorscheme solarized
