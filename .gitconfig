@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /home/mcoleman/.gitignore_global
 [alias]
+  d = "diff --color"
   cf = "!git add . && git commit -a --amend --no-edit"
   gp = "!source ~/.rc.d/git && gen_patch"
   rdiff = "!git fetch -qp && for b in `git for-each-ref --format='%(refname:short)' refs/heads/`; do git branch -r | grep $b | grep -v \"HEAD\"; done"
