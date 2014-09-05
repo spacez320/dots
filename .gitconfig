@@ -1,8 +1,8 @@
 [user]
-	email = matthew@kronos0.net
-	name = Matthew Coleman
+  email = matthew@kronos0.net
+  name = Matthew Coleman
 [core]
-	excludesfile = /home/mcoleman/.gitignore_global
+  excludesfile = /home/mcoleman/.gitignore_global
 [alias]
   d = "diff --color"
   cf = "!git add . && git commit -a --amend --no-edit"
@@ -10,3 +10,6 @@
   rdiff = "!git fetch -qp && for b in `git for-each-ref --format='%(refname:short)' refs/heads/`; do git branch -r | grep $b | grep -v \"HEAD\"; done"
   rf = "!git stash -u && git pull --rebase origin master && git stash pop"
   ss = "stash save -u"
+[color "diff"]
+  new = yellow bold
+  old = magenta

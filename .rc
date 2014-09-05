@@ -107,6 +107,22 @@ function rdiff() {
     $passargs $source $dest)"
 }
 
+# a way to rsync between two remote hosts
+function rrsync() {
+  if (( $# < 2 )); then
+    echo "Usage: rrsync <source> <dest> [args]";
+    return 1;
+  fi
+
+  local source=$1
+  local dest=$2
+  shift && shift
+
+  mkdir -p /tmp/rrsync
+  rsync $@ $source /tmp/rrsync
+  rsync $@ /tmp/rrsync/ $dest
+}
+
 ### Source
 
 for f in $HOME/.rc.d/*; do . $f; done

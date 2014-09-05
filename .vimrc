@@ -60,6 +60,7 @@ autocmd FileType python set commentstring=#\ %s
 autocmd FileType nginx set commentstring=#\ %s
 autocmd FileType haproxy set commentstring=#\ %s
 autocmd FileType monitrc set commentstring=#\ %s
+autocmd FileType puppet set commentstring=#\ %s
 
 " colors
 colorscheme codeschool
