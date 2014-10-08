@@ -19,6 +19,9 @@ set encoding=utf-8
 set incsearch
 set modeline
 set ls=2
+if has("cc")
+  set cc=80
+endif
 set list
 set listchars=tab:»·,trail:·
 set smartcase
@@ -42,8 +45,6 @@ set expandtab
 map ,c :match ErrorMsg '\%>80v.\+'<CR>
 map <c-h> :set hlsearch!<CR>
 vmap ,x :!tidy -q -i --show-errors 0<CR>
-vmap ,c :s/^/#/g<CR> :nohl<CR>
-vmap ,u :s/^#//g<CR> :nohl<CR>
 vmap ,w :s/\s*$//g<CR> :nohl<CR>
 vnoremap . :normal .<CR>
 
