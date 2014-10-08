@@ -5,8 +5,6 @@ PATCHES_DIR=$HOME/tmp/patches
 # update branch and master and generate a full-index diff
 gen_patch() {
 
-  set -e
-
   local repo=$(basename `git rev-parse --show-toplevel`)
   local lbranch=`git branch | grep '*' | awk '{print $2}'`
 
@@ -16,7 +14,5 @@ gen_patch() {
 
   git diff --full-index master..$lbranch > \
     "${PATCHES_DIR}/${repo}_${lbranch}.patch"
-
-  set +e
 
 }
