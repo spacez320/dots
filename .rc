@@ -7,8 +7,6 @@
 set -o vi
 PROMPT_COMMAND="history -a;"
 
-### Sources
-
 ### Aliases
 
 # commands
@@ -51,16 +49,16 @@ pause() {
   fi
 }
 
-# downloads a website for offline use
+# download a website for offline use
 dlweb() {
   wget \
     --recursive \
     --no-clobber \
     --page-requisites \
     --adjust-extension \
-    --convert-links
-    --domains "$1"
-    --tries=10
+    --convert-links \
+    --domains "$1" \
+    --tries=10 \
     "$1"
 }
 
@@ -80,7 +78,7 @@ arise() {
   fi
 }
 
-# runs a name-only diff between local and remote filesystems
+# name-only diff between local and remote filesystems
 function rdiff() {
   if (( $# < 2 )); then
     echo "Usage: rdiff <source> <dest> [args]";
@@ -107,7 +105,7 @@ function rdiff() {
     $passargs $source $dest)"
 }
 
-# a way to rsync between two remote hosts
+# rsync between two remote hosts
 function rrsync() {
   if (( $# < 2 )); then
     echo "Usage: rrsync <source> <dest> [args]";
