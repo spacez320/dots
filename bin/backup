@@ -3,18 +3,19 @@
 main() {
 
   local checksum=$HOME/checksum/checksum
+  local config=$HOME/.obnam.conf
 
   # checksum
   dd if=/dev/urandom of=$checksum bs=1M count=10 2> /dev/null
 
   # backup
-  obnam --quiet backup && \
+  obnam --config=$config --quiet backup && \
 
   # verify
-  obnam --quiet verify `dirname $checksum` 1> /dev/null
+  obnam --config=$config --quiet verify `dirname $checksum` 1> /dev/null
 
   # forget
-  obnam forget
+  obnam --config=$config forget
 
 }
 
