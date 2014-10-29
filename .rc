@@ -18,6 +18,7 @@ alias egrep='egrep --color=always'
 alias rm='rm -i'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
+alias wp='php $HOME/lib/wp-cli/wp-cli.phar'
 
 # shortcuts
 alias ipext='curl -s icanhazip.com'
@@ -79,7 +80,7 @@ arise() {
 }
 
 # name-only diff between local and remote filesystems
-function rdiff() {
+rdiff() {
   if (( $# < 2 )); then
     echo "Usage: rdiff <source> <dest> [args]";
     return 1;
@@ -106,7 +107,7 @@ function rdiff() {
 }
 
 # rsync between two remote hosts
-function rrsync() {
+rrsync() {
   if (( $# < 2 )); then
     echo "Usage: rrsync <source> <dest> [args]";
     return 1;
