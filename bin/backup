@@ -8,11 +8,11 @@ main() {
   local config=$HOME/.config/obnam/local.conf
   local obnam_opts=$1
 
-  # keychain
-  keychain --noask --agents gpg
+  # make sure we're using the right gpg key
+  keychain --stop others --noask --agents gpg 2> $OBNAM_LOG
   . ~/.keychain/`hostname`-sh-gpg
 
-  # checksum
+  # some random data to verify against
   dd if=/dev/urandom of=$checksum bs=1M count=10 2> /dev/null
 
   # backup, verify, forget
@@ -22,4 +22,4 @@ main() {
 
 }
 
-GNUPGHOME=$HOME/.gnupg main $@ &> $OBNAM_LOG
+GNUPGHOME=$HOME/.gnupg main $@ > $OBNAM_LOG
