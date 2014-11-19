@@ -11,6 +11,6 @@
   rf = "!git stash -u && git pull --rebase origin master && git stash pop"
   ss = "stash save -u"
   slow = "!git gc && git fetch -p && git pull --rebase origin master"
-[color "diff"]
-  new = yellow bold
-  old = magenta
+  vimdiff = "difftool"
+[diff]
+  tool = vimdiff
