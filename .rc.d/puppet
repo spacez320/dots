@@ -2,8 +2,8 @@
 
 alias pa='sudo puppet agent'
 alias pt='pa -t'
-alias pen='pa --enable'
-alias pdn='pa --disable'
+alias pe='pa --enable'
+alias pd='pa --disable'
 
 # runs puppet with an optional environment
 function pr() {
@@ -14,14 +14,14 @@ function pr() {
 }
 
 # freezes puppet into an optional environment
-function pe() {
+function pf() {
   local environment="production"
   [ -n "$1" ] && environment=$1 && shift
 
   local passargs=
   (( $# > 0 )) && passargs="$@"
 
-  pen && \
+  pe && \
   pt --environment=${environment} ${passargs}
-  pdn
+  pd
 }

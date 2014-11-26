@@ -14,3 +14,9 @@ function san {
     | tr -d ' '
 }
 
+# checks a certificate against a key
+function ckcrt {
+  diff \
+    <(openssl x509 -in $1 -noout -modulus) \
+    <(openssl rsa -in $2 -noout -modulus)
+}

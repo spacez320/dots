@@ -67,3 +67,9 @@
 [submodule ".vim/bundle/nginx-vim-syntax"]
 	path = .vim/bundle/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule ".vim/bundle/vim-monit"]
+	path = .vim/bundle/vim-monit
+	url = https://github.com/tmatilai/vim-monit.git
+[submodule ".vim/bundle/vim-puppet"]
+	path = .vim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git

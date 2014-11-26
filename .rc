@@ -7,8 +7,6 @@
 set -o vi
 PROMPT_COMMAND="history -a;"
 
-### Sources
-
 ### Aliases
 
 # commands
@@ -20,6 +18,7 @@ alias egrep='egrep --color=always'
 alias rm='rm -i'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
+alias wp='php $HOME/lib/wp-cli/wp-cli.phar'
 
 # shortcuts
 alias ipext='curl -s icanhazip.com'
@@ -37,8 +36,13 @@ alias gpg='gpg --homedir $HOME_PRIV/.gnupg'
 
 ### Functions
 
+# find all files with names containing a string
+fn() {
+  find . -name "*$1*"
+}
+
 # pause for an enter
-function pause() {
+pause() {
   if grep 'bash' <<< $(echo $SHELL); then
     read -p "Press enter to continue."
   else
@@ -46,21 +50,21 @@ function pause() {
   fi
 }
 
-# downloads a website for offline use
-function dlweb() {
+# download a website for offline use
+dlweb() {
   wget \
     --recursive \
     --no-clobber \
     --page-requisites \
     --adjust-extension \
-    --convert-links
-    --domains "$1"
-    --tries=10
+    --convert-links \
+    --domains "$1" \
+    --tries=10 \
     "$1"
 }
 
 # billythewitchdoctor.com
-function arise() {
+arise() {
   if [ "$1" = "chicken" ]; then
     if [ "arise" = "$2" ]; then echo 'arise chicken';
     else echo 'arise chicken arise'; fi
@@ -75,8 +79,8 @@ function arise() {
   fi
 }
 
-# runs a name-only diff between local and remote filesystems
-function rdiff() {
+# name-only diff between local and remote filesystems
+rdiff() {
   if (( $# < 2 )); then
     echo "Usage: rdiff <source> <dest> [args]";
     return 1;
@@ -100,6 +104,22 @@ function rdiff() {
   done <<< \
     "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
     $passargs $source $dest)"
+}
+
+# rsync between two remote hosts
+rrsync() {
+  if (( $# < 2 )); then
+    echo "Usage: rrsync <source> <dest> [args]";
+    return 1;
+  fi
+
+  local source=$1
+  local dest=$2
+  shift && shift
+
+  mkdir -p /tmp/rrsync
+  rsync $@ $source /tmp/rrsync
+  rsync $@ /tmp/rrsync/ $dest
 }
 
 ### Source
