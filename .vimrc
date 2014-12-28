@@ -19,9 +19,7 @@ set encoding=utf-8
 set incsearch
 set modeline
 set ls=2
-if has("cc")
-  set cc=80
-endif
+set cc=80
 set list
 set listchars=tab:»·,trail:·
 set smartcase
