@@ -24,7 +24,8 @@ set list
 set listchars=tab:»·,trail:·
 set smartcase
 set dir=~/.swp
-set statusline+=%f
+
+set statusline+=\ %f%=%l/%L\ 
 
 " auto views
 au BufWinLeave ?* mkview
