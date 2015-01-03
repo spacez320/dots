@@ -19,6 +19,7 @@ alias rm='rm -i'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
 alias wp='php $HOME/lib/wp-cli/wp-cli.phar'
+alias please='sudo'
 
 # shortcuts
 alias ipext='curl -s icanhazip.com'
@@ -120,6 +121,16 @@ rrsync() {
   mkdir -p /tmp/rrsync
   rsync $@ $source /tmp/rrsync
   rsync $@ /tmp/rrsync/ $dest
+}
+
+# find large files under a directory
+duf() {
+  if (( $# < 1 )); then
+    echo "Usage: dufind <source>";
+    return 1;
+  fi
+
+  find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
 }
 
 ### Source

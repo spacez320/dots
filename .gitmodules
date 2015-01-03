@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule ".vim/bundle/django.vim"]
+	path = .vim/bundle/django.vim
+	url = https://github.com/vim-scripts/django.vim.git
