@@ -10,5 +10,3 @@ fi
 if ! pgrep xscreensaver > /dev/null; then
   xscreensaver -no-splash &
 fi
-
-[[ -f $HOME/.Xresources ]] && xrdb -merge ~/.Xresources

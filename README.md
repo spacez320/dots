@@ -10,4 +10,3 @@ You might find these useful if you use:
 * bash or zsh
 * tmux
 * [obnam](http://liw.fi/obnam/)
-* [urxvt](https://en.wikipedia.org/wiki/Rxvt-unicode)

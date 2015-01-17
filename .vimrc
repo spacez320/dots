@@ -23,7 +23,7 @@ set cc=80
 set list
 set listchars=tab:»·,trail:·
 set smartcase
-set dir=~/.swp
+set dir=$HOME/.vim/swp
 
 set statusline+=\ %f%=%l/%L\ 
 

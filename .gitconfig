@@ -1,6 +1,6 @@
 [user]
-  email = matthew@kronos0.net
   name = Matthew Coleman
+  email = matthew@eudaimonia.io
 [core]
   excludesfile = /home/mcoleman/.gitignore_global
 [alias]
