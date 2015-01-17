@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# find all files with names containing a string
+fn() {
+  find . -name "*$1*"
+}
+
+# pause for an enter
+pause() {
+  if grep 'bash' <<< $(echo $SHELL); then
+    read -p "Press enter to continue."
+  else
+    read \?"Press enter to continue."
+  fi
+}
+
+# download a website for offline use
+dlweb() {
+  wget \
+    --recursive \
+    --no-clobber \
+    --page-requisites \
+    --adjust-extension \
+    --convert-links \
+    --domains "$1" \
+    --tries=10 \
+    "$1"
+}
+
+# billythewitchdoctor.com
+arise() {
+  if [ "$1" = "chicken" ]; then
+    if [ "arise" = "$2" ]; then echo 'arise chicken';
+    else echo 'arise chicken arise'; fi
+    return 0
+  fi
+  if [ "arise" != "$2" ]; then
+    echo 'hold on, stick upside-down'
+    return 1;
+  fi
+  if command -v $1 &>/dev/null; then
+    $1&
+  fi
+}
+
+# name-only diff between local and remote filesystems
+rdiff() {
+  if (( $# < 2 )); then
+    echo "Usage: rdiff <source> <dest> [args]";
+    return 1;
+  fi
+
+  local source=$1;
+  local dest=$2;
+  shift && shift
+
+  local passargs=
+  (( $# > 0 )) && passargs="$@"
+
+  while read line; do
+    echo "> $(awk -F ' ' '{ print $2 }' <<< $(echo $line))"
+  done <<< \
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
+      $passargs $dest $source)"
+
+  while read line; do
+    echo "< $(awk -F' ' '{ print $2 }' <<< $(echo $line))"
+  done <<< \
+    "$(rsync -rLk --no-motd --size-only --itemize-changes --dry-run \
+    $passargs $source $dest)"
+}
+
+# rsync between two remote hosts
+rrsync() {
+  if (( $# < 2 )); then
+    echo "Usage: rrsync <source> <dest> [args]";
+    return 1;
+  fi
+
+  local source=$1
+  local dest=$2
+  shift && shift
+
+  mkdir -p /tmp/rrsync
+  rsync $@ $source /tmp/rrsync
+  rsync $@ /tmp/rrsync/ $dest
+}
+
+# find large files under a directory
+duf() {
+  if (( $# < 1 )); then
+    echo "Usage: dufind <source>";
+    return 1;
+  fi
+
+  find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
+}

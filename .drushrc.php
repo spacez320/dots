@@ -22,7 +22,7 @@ $options['package-handler'] = 'git_drupalorg';
 // always submodule
 $options['gitsubmodule'] = true;
 
-// database dumping 
+// database dumping
 $options['drump-dir'] = '/var/drush/bak/';
 
 // send anonymous usage stats to Drush dev
