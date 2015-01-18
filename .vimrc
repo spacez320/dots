@@ -61,12 +61,6 @@ autocmd FileType haproxy set commentstring=#\ %s
 autocmd FileType monitrc set commentstring=#\ %s
 autocmd FileType puppet set commentstring=#\ %s
 
-" colors
-colorscheme codeschool
-hi ColorColumn ctermbg=235 guibg=2c2d27
-highlight LineNr ctermfg=236 ctermbg=233
-hi NonText ctermfg=59 ctermbg=16 cterm=NONE gui=NONE
-
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
