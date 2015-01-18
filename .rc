@@ -10,6 +10,7 @@ PROMPT_COMMAND="history -a;"
 ### Aliases
 
 # commands
+alias ls='ls --color=never'
 alias sl='ls'
 alias less='less -R'
 alias grep='grep --color=always'
