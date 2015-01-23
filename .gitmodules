@@ -4,51 +4,27 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "lib/p"]
-	path = lib/p
-	url = https://github.com/spacez320/p.git
 [submodule "lib/oh-my-zsh"]
 	path = lib/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "lib/vim-colors-solarized"]
-	path = lib/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/zenburn"]
-	path = .vim/bundle/zenburn
-	url = https://github.com/jnurmine/Zenburn.git
 [submodule ".vim/bundle/tlib_vim"]
 	path = .vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule ".vim/bundle/vim-snipmate"]
-	path = .vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-[submodule ".vim/bundle/vim-snippets"]
-	path = .vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = git://github.com/slim-template/vim-slim.git
-[submodule "lib/mutt-colors-solarized"]
-	path = lib/mutt-colors-solarized
-	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule ".vim/bundle/mirodark"]
-	path = .vim/bundle/mirodark
-	url = https://github.com/djjcast/mirodark.git
 [submodule ".vim/bundle/dart-vim-plugin"]
 	path = .vim/bundle/dart-vim-plugin
 	url = https://github.com/dart-lang/dart-vim-plugin.git
-[submodule "lib/xfce4-terminal-colors-solarized"]
-	path = lib/xfce4-terminal-colors-solarized
-	url = https://github.com/sgerrand/xfce4-terminal-colors-solarized.git
 [submodule ".vim/bundle/codeschool-vim-theme"]
 	path = .vim/bundle/codeschool-vim-theme
 	url = https://github.com/29decibel/codeschool-vim-theme.git
