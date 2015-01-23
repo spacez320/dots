@@ -4,12 +4,7 @@
 
 ### Sources
 
-# bashrc
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
-
 # profile
-if [ -f ~/.profile ]; then
-  . ~/.profile
+if [ -f $HOME/.env ]; then
+  . $HOME/.env
 fi
