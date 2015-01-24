@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# figure out PRIV
+setpriv() {
+  for mount in deontos eidos; do
+    if mountpoint "$HOME/mnt/$mount" > /dev/null; then
+      echo "$HOME/mnt/$mount"
+    fi
+  done
+}
+
 # find all files with names containing a string
 fn() {
   find . -name "*$1*"
