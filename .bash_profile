@@ -4,6 +4,11 @@
 
 ### Sources
 
+# rc
+if [ -f $HOME/.bashrc ]; then
+  . $HOME/.bashrc
+fi
+
 # profile
 if [ -f $HOME/.env ]; then
   . $HOME/.env
