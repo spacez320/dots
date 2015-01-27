@@ -3,7 +3,7 @@
 # figure out PRIV
 setpriv() {
   for mount in deontos eidos; do
-    if mountpoint "$HOME/mnt/$mount" > /dev/null; then
+    if mountpoint "$HOME/mnt/$mount" &> /dev/null; then
       echo "$HOME/mnt/$mount"
     fi
   done
