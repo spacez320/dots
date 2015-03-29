@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # add me as an administrator to wordpress
-function wp_addme() {
+wp_addme() {
   echo "Enter password: "
   read -s PASSWORD
   wp user create $USER "$USER@local.host" \
@@ -9,7 +9,7 @@ function wp_addme() {
 }
 
 # reset wordpress hostname
-function wp_url() {
+wp_url() {
   [[ -z $1 ]] && return 1
 
   local sql=/tmp/wp.out.sql

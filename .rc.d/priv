@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# figure out PRIV
+priv() {
+  for mount in deontos eidos; do
+    if mountpoint "$HOME/mnt/$mount" &> /dev/null; then
+      echo "$HOME/mnt/$mount"
+      break
+    fi
+  done
+}
+
+export PRIV=`priv`
+alias mutt='mutt -F $PRIV/.muttrc'
+alias gpg='gpg --homedir $PRIV/.gnupg'
+alias trousseau='trousseau --gnupg-home $PRIV/.gnupg --store=$PRIV/.trousseau'
