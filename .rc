@@ -24,11 +24,4 @@ alias please='sudo'
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
 
-# home_priv
-alias mutt='mutt -F $PRIV/.muttrc'
-alias gpg='gpg --homedir $PRIV/.gnupg'
-alias trousseau='trousseau --gnupg-home $PRIV/.gnupg --store=$PRIV/.trousseau'
-
-### Source
-
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done
