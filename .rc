@@ -24,4 +24,4 @@ alias please='sudo'
 alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
 
-for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done
+for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
