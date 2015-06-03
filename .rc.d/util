@@ -82,8 +82,24 @@ rrsync() {
   shift && shift
 
   mkdir -p /tmp/rrsync
-  rsync $@ $source /tmp/rrsync
+  rsync $@ $source /tmp/rrsync/
   rsync $@ /tmp/rrsync/ $dest
+}
+
+# scp a single file between two hosts
+sscp() {
+  if (( $# < 2 )); then
+    echo "Usage: sscp <source> <dest> [args]";
+    return 1;
+  fi
+
+  local source=$1
+  local dest=$2
+  shift && shift
+
+  mkdir -p /tmp/sscp
+  scp $@ $source /tmp/sscp/`basename $source`
+  scp $@ /tmp/sscp/`basename $source` $dest
 }
 
 # find large files under a directory
