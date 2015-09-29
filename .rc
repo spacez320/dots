@@ -19,6 +19,7 @@ alias rm='rm -i'
 alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
 alias please='sudo'
+alias dig='dig +noauthority +noquestion +nostats +nocomments +nocmd'
 
 # shortcuts
 alias ipext='curl -s icanhazip.com'
