@@ -10,19 +10,19 @@ PROMPT_COMMAND="history -a;"
 ### Aliases
 
 # commands
-alias ls='ls --color=never'
-alias sl='ls'
-alias less='less -R'
-alias grep='grep --color=always'
-alias egrep='egrep --color=always'
-alias rm='rm -i'
-alias firefox='firefox -new-window'
 alias chromium='chromium --incognito'
-alias please='sudo'
 alias dig='dig +noauthority +noquestion +nostats +nocomments +nocmd'
+alias egrep='egrep --color=always'
+alias firefox='firefox -new-window'
+alias grep='grep --color=always'
+alias less='less -R'
+alias ls='ls --color=never'
+alias please='sudo'
+alias rm='rm -i'
+alias sl='ls'
 
 # shortcuts
-alias ipext='curl -s icanhazip.com'
 alias dateo='date +%Y%m%d%H%M%S'
+alias ipext='curl -s icanhazip.com'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done
