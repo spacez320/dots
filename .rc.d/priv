@@ -11,6 +11,6 @@ priv() {
 }
 
 export PRIV=`priv`
+export PASSWORD_STORE_DIR=$PRIV/.pass
 alias mutt='mutt -F $PRIV/.muttrc'
 alias gpg='gpg --homedir $PRIV/.gnupg'
-alias trousseau='trousseau --gnupg-home $PRIV/.gnupg --store=$PRIV/.trousseau'
