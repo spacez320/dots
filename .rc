@@ -25,4 +25,4 @@ alias sl='ls'
 alias dateo='date +%Y%m%d%H%M%S'
 alias ipext='curl -s icanhazip.com'
 
-for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done
+for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
