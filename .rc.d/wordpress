@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias wp='$HOME/.wp-cli/bin/wp'
+
 # add me as an administrator to wordpress
 wp_addme() {
   echo "Enter password: "
