@@ -1,7 +1,8 @@
-*.swp
 *.lvimrc
 *.pyc
+*.swp
 .deps
+.opt
 .ruby-*
 .svn
-.opt
+.vagrant
