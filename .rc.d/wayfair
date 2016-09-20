@@ -1,17 +1,17 @@
 #!/bin/bash
+#
+# Wayfair specific things.
+#
 
 # jenkinscli
 alias jenkins='/usr/bin/java -jar /wayfair/pkg/jenkins/bin/jenkins-cli.jar -s http://localhost/jenkins'
 alias jenkins2='/usr/bin/java -jar /wayfair/pkg/jenkins/latest/bin/jenkins-cli.jar -s http://localhost/jenkins'
 
 # python27
-alias python27='export PATH=/wayfair/pkg/python2.7/Python-2.7.3/bin:$PATH'
+alias wfpython='export PATH=/wayfair/pkg/python2.7/latest/bin:$PATH'
 
 # ruby193
-alias ruby193='export PATH=/wayfair/pkg/ruby/ruby-1.9.3/bin:$PATH'
-
-# wp
-alias wp='php /wayfair/pkg/wp-cli/wp-cli.phar'
+alias wfruby='export PATH=/wayfair/pkg/ruby/ruby-1.9.3/bin:$PATH'
 
 # convenience wrapper for hammer
 hosts() {
