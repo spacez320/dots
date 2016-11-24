@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# Wayfair specific things.
+#
+
+# jenkinscli
+alias jenkins='/usr/bin/java -jar /wayfair/pkg/jenkins/bin/jenkins-cli.jar -s http://localhost/jenkins'
+alias jenkins2='/usr/bin/java -jar /wayfair/pkg/jenkins/latest/bin/jenkins-cli.jar -s http://localhost/jenkins'
+
+# python27
+alias wfpython='export PATH=/wayfair/pkg/python2.7/latest/bin:$PATH'
+
+# ruby193
+alias wfruby='export PATH=/wayfair/pkg/ruby/ruby-1.9.3/bin:$PATH'
+
+# convenience wrapper for hammer
+hosts() {
+  comma=false
+  while getopts 'c' opt; do
+    case $opt in
+      c) comma=true ;;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  list=$(hammer \
+    --csv --csv-separator=' ' host list --per-page=9999 --search "${1}")
+
+  case "$2" in
+    'ip')
+      list=$(echo "${list}" | tail -n +2 | awk '{print $5}') ;;
+    'host')
+      list=$(echo "${list}" | tail -n +2 | awk '{print $2}') ;;
+    *)
+      list=$(echo "${list}" | tail -n +2 | awk '{print $2}') ;;
+  esac
+
+  if $comma; then
+    list=$(echo "${list}" | tr '\n' ',' | rev)
+    list=${list:1}
+    list=$(echo "${list}" | rev)
+  fi
+
+  echo $list
+}
+
+# convenience wrapper for itassets
+function wsss {
+  echo -e "`wss $1 | awk -F ' ' '{ print $1 }'`"
+}
