@@ -1,6 +1,15 @@
 #!/bin/bash
 
-# figure out PRIV
+# Refershes the priv mount.
+repriv() {
+  local mount=`priv`
+
+  sudo killall gpg-agent
+  sudo umount --force $mount
+  mount $mount
+}
+
+# Figure out PRIV.
 priv() {
   for mount in deontos eidos; do
     if mountpoint "$HOME/mnt/$mount" &> /dev/null; then
@@ -10,6 +19,7 @@ priv() {
   done
 }
 
+# Set environment and alaises.
 export PRIV=`priv`
 export PASSWORD_STORE_DIR=$PRIV/.pass
 alias mutt='mutt -F $PRIV/.muttrc'
