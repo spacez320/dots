@@ -1,10 +1,11 @@
 #!/bin/bash
+#
+# Git shell configuration.
 
 PATCHES_DIR=$HOME/tmp/patches
 
-# update branch and master and generate a full-index diff
+# Generate a full-indexed diff between the current branch and master.
 gen_patch() {
-
   local repo=$(basename `git rev-parse --show-toplevel`)
   local lbranch=`git branch | grep '*' | awk '{print $2}'`
 
@@ -12,7 +13,8 @@ gen_patch() {
     git checkout $i && git pull --rebase origin master
   done
 
+  mkdir --parents $PATCHES_DIR
+
   git diff --full-index master..$lbranch > \
     "${PATCHES_DIR}/${repo}_${lbranch}.patch"
-
 }

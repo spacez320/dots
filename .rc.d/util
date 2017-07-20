@@ -1,11 +1,13 @@
 #!/bin/bash
+#
+# General utility functions.
 
-# find all files with names containing a string
+# Find all files with names containing a string.
 fn() {
   find . -name "*$1*"
 }
 
-# pause for an enter
+# Pause for a keystroke.
 pause() {
   if grep 'bash' <<< $(echo $SHELL); then
     read -p "Press enter to continue."
@@ -14,15 +16,15 @@ pause() {
   fi
 }
 
-# download a website for offline use
+# Download a website for offline use.
 dlweb() {
   wget \
-    --recursive \
-    --no-clobber \
-    --page-requisites \
     --adjust-extension \
     --convert-links \
     --domains "$1" \
+    --no-clobber \
+    --page-requisites \
+    --recursive \
     --tries=10 \
     "$1"
 }
@@ -43,7 +45,7 @@ arise() {
   fi
 }
 
-# name-only diff between local and remote filesystems
+# Produce a name-only diff between local and remote filesystems.
 rdiff() {
   if (( $# < 2 )); then
     echo "Usage: rdiff <source> <dest> [args]";
@@ -70,7 +72,7 @@ rdiff() {
     $passargs $source $dest)"
 }
 
-# rsync between two remote hosts
+# Rsync between two remote hosts.
 rrsync() {
   if (( $# < 2 )); then
     echo "Usage: rrsync <source> <dest> [args]";
@@ -102,10 +104,10 @@ sscp() {
   scp $@ /tmp/sscp/`basename $source` $dest
 }
 
-# find large files under a directory
+# Find large files under a directory.
 duf() {
   if (( $# < 1 )); then
-    echo "Usage: dufind <source>";
+    echo "Usage: duf <source>";
     return 1;
   fi
 

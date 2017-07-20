@@ -2,29 +2,23 @@
 #
 # Shell agnostic non-login configuration.
 
-### General
-
 set -o vi
 PROMPT_COMMAND="history -a;"
 
-### Aliases
-
-# commands
 alias chromium='chromium --incognito'
+alias dateo='date +%Y%m%d%H%M%S'
 alias dig='dig +noauthority +noquestion +nostats +nocomments +nocmd'
 alias egrep='egrep --color=always'
 alias firefox='firefox -new-window'
 alias grep='grep --color=always'
+alias ipext='curl -s icanhazip.com'
 alias journalf='sudo journalctl --follow --unit'
 alias less='less -R'
 alias ls='ls --color=never'
 alias openconnect='sudo openconnect --config ~/.openconnect'
+alias packer='/opt/packer/packer'
 alias please='sudo'
 alias rm='rm -i'
 alias sl='ls'
-
-# shortcuts
-alias dateo='date +%Y%m%d%H%M%S'
-alias ipext='curl -s icanhazip.com'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
