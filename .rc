@@ -20,5 +20,6 @@ alias packer='/opt/packer/packer'
 alias please='sudo'
 alias rm='rm -i'
 alias sl='ls'
+alias terraform='/opt/terraform/terraform'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
