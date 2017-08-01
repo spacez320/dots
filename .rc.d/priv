@@ -2,16 +2,7 @@
 #
 # Helper utilities for the priv store.
 
-# Refershes a priv store mount.
-repriv() {
-  local mount=$1
-
-  sudo killall gpg-agent
-  sudo umount --force "${HOME}/mnt/${mount}"
-  mount $mount
-}
-
-# Figure out a current available priv store mount.
+# Figure out a current available priv mount.
 priv() {
   for mount in deontos eidos; do
     if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
@@ -21,7 +12,19 @@ priv() {
   done
 }
 
+# Refershes a priv mount.
+repriv() {
+  local mount=$1
+
+  sudo killall gpg-agent 2> /dev/null
+  sudo umount --force "${HOME}/mnt/${mount}" 2> /dev/null
+  mount "${HOME}/mnt/${mount}"
+
+  [[ $? -eq 0 ]] && echo "${HOME}/mnt/${mount}"
+}
+
 export PRIV=`priv`
 export PASSWORD_STORE_DIR=$PRIV/.pass
-alias mutt='mutt -F $PRIV/.muttrc'
+
 alias gpg='gpg --homedir $PRIV/.gnupg'
+alias mutt='mutt -F $PRIV/.muttrc'
