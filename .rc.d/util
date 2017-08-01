@@ -113,3 +113,8 @@ duf() {
 
   find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
 }
+
+# JSON friendly cURL call.
+jcurl() {
+  curl --silent $1 | json_pp
+}

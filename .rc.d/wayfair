@@ -3,8 +3,7 @@
 # Wayfair specific things.
 
 # jenkinscli
-alias jenkins='/usr/bin/java -jar /wayfair/pkg/jenkins/bin/jenkins-cli.jar -s http://localhost/jenkins'
-alias jenkins2='/usr/bin/java -jar /wayfair/pkg/jenkins/latest/bin/jenkins-cli.jar -s http://localhost/jenkins'
+alias jenkins='/usr/bin/java -jar /wayfair/pkg/jenkins/latest/bin/jenkins-cli.jar -s http://localhost/jenkins'
 
 # python27
 alias wfpython='export PATH=/wayfair/pkg/python2.7/latest/bin:$PATH'
@@ -12,7 +11,7 @@ alias wfpython='export PATH=/wayfair/pkg/python2.7/latest/bin:$PATH'
 # ruby193
 alias wfruby='export PATH=/wayfair/pkg/ruby/ruby-1.9.3/bin:$PATH'
 
-# Convenience wrapper for Hammer.
+# Convenience wrapper for `hammer`.
 hosts() {
   comma=false
   while getopts 'c' opt; do
