@@ -1,8 +1,10 @@
 #!/bin/bash
+#
+# Convenience functions for Wordpress.
 
 alias wp='$HOME/.wp-cli/bin/wp'
 
-# add me as an administrator to wordpress
+# Add me as an administrator to wordpress.
 wp_addme() {
   echo "Enter password: "
   read -s PASSWORD
@@ -10,7 +12,7 @@ wp_addme() {
     --role=administrator --user_pass=$PASSWORD
 }
 
-# reset wordpress hostname
+# Reset the Wordpress hostname.
 wp_url() {
   [[ -z $1 ]] && return 1
 

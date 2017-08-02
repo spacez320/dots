@@ -1,11 +1,13 @@
 #!/bin/bash
+#
+# Helper utilities for Puppet.
 
 alias pa='sudo puppet agent'
-alias pt='pa -t'
-alias pe='pa --enable'
 alias pd='pa --disable'
+alias pe='pa --enable'
+alias pt='pa --test'
 
-# runs puppet with an optional environment
+# Runs Puppet with an optional environment.
 function pr() {
   local environment="production"
   [ -n "$1" ] && environment="$1"
@@ -13,7 +15,7 @@ function pr() {
   pt --environment="${environment}"
 }
 
-# freezes puppet into an optional environment
+# Freezes puppet into an optional environment.
 function pf() {
   local environment="production"
   [ -n "$1" ] && environment=$1 && shift
@@ -21,7 +23,6 @@ function pf() {
   local passargs=
   (( $# > 0 )) && passargs="$@"
 
-  pe && \
-  pt --environment=${environment} ${passargs}
+  pe && pt --environment=${environment} ${passargs}
   pd
 }
