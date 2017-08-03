@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vim-flake8"]
 	path = .vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
+[submodule ".vim/bundle/vcl-vim-plugin"]
+	path = .vim/bundle/vcl-vim-plugin
+	url = https://github.com/smerrill/vcl-vim-plugin.git
