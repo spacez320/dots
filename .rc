@@ -16,10 +16,10 @@ alias journalf='sudo journalctl --follow --unit'
 alias less='less -R'
 alias ls='ls --color=never'
 alias openconnect='sudo openconnect --config ~/.openconnect'
-alias packer='/opt/packer/packer'
+alias packer='/opt/hashicorp/packer'
 alias please='sudo'
 alias rm='rm -i'
 alias sl='ls'
-alias terraform='/opt/terraform/terraform'
+alias terraform='/opt/hashicorp/terraform'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
