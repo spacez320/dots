@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vcl-vim-plugin"]
 	path = .vim/bundle/vcl-vim-plugin
 	url = https://github.com/smerrill/vcl-vim-plugin.git
+[submodule ".vim/bundle/vim-terraform"]
+	path = .vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
