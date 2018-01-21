@@ -86,9 +86,10 @@ rrsync() {
   mkdir -p /tmp/rrsync
   rsync $@ $source /tmp/rrsync/
   rsync $@ /tmp/rrsync/ $dest
+  rm -rf /tmp/rrsync
 }
 
-# scp a single file between two hosts
+# Secure copy a file between two hosts.
 sscp() {
   if (( $# < 2 )); then
     echo "Usage: sscp <source> <dest> [args]";
@@ -102,6 +103,7 @@ sscp() {
   mkdir -p /tmp/sscp
   scp $@ $source /tmp/sscp/`basename $source`
   scp $@ /tmp/sscp/`basename $source` $dest
+  rm -f /tmp/sscp/`basename $source`
 }
 
 # Find large files under a directory.
@@ -116,5 +118,5 @@ duf() {
 
 # JSON friendly cURL call.
 jcurl() {
-  curl --silent $1 | json_pp
+  curl --header "Accept: application/json" --silent $1 | json_pp
 }
