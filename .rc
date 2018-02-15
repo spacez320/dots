@@ -6,7 +6,9 @@ set -o vi
 PROMPT_COMMAND="history -a;"
 
 alias chromium='chromium --incognito'
+alias d='docker'
 alias dateo='date +%Y%m%d%H%M%S'
+alias dc='docker-compose'
 alias dig='dig +noauthority +noquestion +nostats +nocomments +nocmd'
 alias egrep='egrep --color=always'
 alias firefox='firefox -new-window'
