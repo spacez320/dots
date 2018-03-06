@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Google specific things.
+
+if [ -f '/opt/google/google-cloud-sdk/path.bash.inc' ]; then
+  . '/opt/google/google-cloud-sdk/path.bash.inc';
+fi
+
+if [ -f '/opt/google/google-cloud-sdk/completion.bash.inc' ]; then
+  . '/opt/google/google-cloud-sdk/completion.bash.inc';
+fi
