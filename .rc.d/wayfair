@@ -11,6 +11,12 @@ alias wfpython='export PATH=/wayfair/pkg/python2.7/latest/bin:$PATH'
 # ruby193
 alias wfruby='export PATH=/wayfair/pkg/ruby/ruby-1.9.3/bin:$PATH'
 
+# VPN
+alias wfvpn='sudo openconnect \
+  --csd-user=mcoleman \
+  --csd-wrapper=$HOME/.cisco/csd-wrapper.sh \
+  --certificate=$HOME/.cisco/lt0115.pem'
+
 # Convenience wrapper for `hammer`.
 hosts() {
   comma=false
