@@ -8,7 +8,7 @@
   dc = "diff --color"
   gp = "!source ~/.rc.d/git && gen_patch"
   pf = "!git cf && git push -f"
-  rd = "!git fetch -qp && for b in `git for-each-ref --format='%(refname:short)' refs/heads/`; do git branch -r | grep $b | grep -v \"HEAD\"; done"
+  rd = "!git branch -D $1 && git push origin :$1 "
   rf = "!git stash -u && git pull --rebase origin master && git stash pop"
   ss = "stash save -u"
   su = "!git gc && git fetch -p && git pull --rebase origin master"
