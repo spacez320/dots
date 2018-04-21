@@ -4,7 +4,7 @@
 
 # Figure out a current available priv mount.
 priv() {
-  for mount in axios deontos eidos; do
+  for mount in axios deontos eidos heiros; do
     if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
       echo "${HOME}/mnt/${mount}"
       break
