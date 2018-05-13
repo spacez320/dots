@@ -5,21 +5,30 @@
 set -o vi
 PROMPT_COMMAND="history -a;"
 
+# Helpers
+
 alias chromium='chromium --incognito'
-alias d='docker'
 alias dateo='date +%Y%m%d%H%M%S'
-alias dc='docker-compose'
-alias dig='dig +noauthority +noquestion +nostats +nocomments +nocmd'
+alias dig='dig +short'
 alias egrep='egrep --color=always'
 alias firefox='firefox -new-window'
 alias grep='grep --color=always'
 alias ipext='curl --silent icanhazip.com'
-alias journalf='sudo journalctl --follow --unit'
 alias less='less -R'
 alias listen='netstat --listen --tcp --numeric --program'
 alias ls='ls --color=never'
 alias pls='sudo !!'
 alias rm='rm -i'
 alias sl='ls'
+
+# Shortcuts
+
+alias d='docker'
+alias dc='docker-compose'
+alias g='git'
+alias j='sudo journalctl'
+alias jf='sudo journalctl --follow --unit'
+alias k='kubectl'
+alias s='sudo systemctl'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
