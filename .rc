@@ -29,7 +29,8 @@ alias g='git'
 alias j='sudo journalctl'
 alias jf='sudo journalctl --follow --unit'
 alias k='kubectl'
-alias s='sudo systemctl'
+alias s='ssh'
+alias sd='sudo systemctl'
 alias v='vim'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
