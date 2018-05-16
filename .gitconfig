@@ -4,15 +4,15 @@
 [core]
   excludesfile = /home/mcoleman/.gitignore_global
 [alias]
-  cf = "!git add . && git commit -a --amend --no-edit"
+  ca = "!git add . && git commit --message"
+  cf = "!git add . && git commit --all --amend --no-edit"
+  d  = "diff"
   dc = "diff --color"
-  gp = "!source ~/.rc.d/git && gen_patch"
-  pf = "!git cf && git push -f"
-  rd = "!git branch -D $1 && git push origin :$1 "
-  rf = "!git stash -u && git pull --rebase origin master && git stash pop"
+  gp = "!. ~/.rc.d/git && gen_patch"
+  p  = "push"
+  pf = "!git cf && git push --force"
+  s  = "status"
   ss = "stash save -u"
-  su = "!git gc && git fetch -p && git pull --rebase origin master"
-  vd = "difftool"
 [diff]
   tool = vimdiff
 [push]
