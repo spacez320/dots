@@ -4,6 +4,7 @@
 [core]
   excludesfile = /home/mcoleman/.gitignore_global
 [alias]
+  b  = "branch"
   ca = "!git add . && git commit --message"
   cf = "!git add . && git commit --all --amend --no-edit"
   d  = "diff"
@@ -11,6 +12,7 @@
   gp = "!. ~/.rc.d/git && gen_patch"
   p  = "push"
   pf = "!git cf && git push --force"
+  pm = "pull --rebase origin master"
   s  = "status"
   ss = "stash save -u"
 [diff]
