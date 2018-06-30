@@ -5,7 +5,7 @@
 PATCHES_DIR=$HOME/tmp/patches
 
 # Generate a full-indexed diff between the current branch and master.
-gen_patch() {
+git::gen_patch() {
   local repo=$(basename `git rev-parse --show-toplevel`)
   local lbranch=`git branch | grep '*' | awk '{print $2}'`
 
@@ -17,4 +17,12 @@ gen_patch() {
 
   git diff --full-index master..$lbranch > \
     "${PATCHES_DIR}/${repo}_${lbranch}.patch"
+}
+
+# Delete all my remote branches.
+git::del_remotes() {
+  for branch in $(git branch --remote | grep --color=never $USER); do
+    next_branch=$(echo $branch | sed 's/origin\///')
+    git push origin :$next_branch;
+  done
 }
