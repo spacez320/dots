@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# PathAI specific things.
+
+# GNU Utils
+alias find="gfind"
+alias ls="gls"
+
+# Various things.
+alias xclip="pbcopy"
