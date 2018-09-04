@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule ".vim/bundle/vim-slim"]
-	path = .vim/bundle/vim-slim
-	url = git://github.com/slim-template/vim-slim.git
 [submodule ".vim/bundle/dart-vim-plugin"]
 	path = .vim/bundle/dart-vim-plugin
 	url = https://github.com/dart-lang/dart-vim-plugin.git
