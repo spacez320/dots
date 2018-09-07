@@ -1,10 +1,15 @@
 #!/bin/bash
 #
-# PathAI specific things.
+# PathAI and Mac OSX specific things.
 
-# GNU Utils
+# GNU Utils.
 alias find="gfind"
 alias ls="gls"
 
 # Various things.
+alias pip="pip3"
+alias python="python3"
 alias xclip="pbcopy"
+
+# Path updates.
+export PATH="$PATH:/Users/matt.coleman/Library/Python/2.7/bin"
