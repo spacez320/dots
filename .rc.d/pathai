@@ -5,11 +5,12 @@
 # GNU Utils.
 alias find="gfind"
 alias ls="gls"
+alias mkdir="gmkdir"
 
 # Various things.
 alias pip="pip3"
 alias python="python3"
 alias xclip="pbcopy"
 
-# Path updates.
+# Environment.
 export PATH="$PATH:/Users/matt.coleman/Library/Python/2.7/bin"
