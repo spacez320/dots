@@ -8,9 +8,12 @@ alias ls="gls"
 alias mkdir="gmkdir"
 
 # Various things.
+alias listen="lsof -i -P | grep -i listen"
 alias pip="pip3"
 alias python="python3"
+alias vlogin="vault login -method=okta username=$USER@pathai.com"
 alias xclip="pbcopy"
 
 # Environment.
 export PATH="$PATH:/Users/matt.coleman/Library/Python/2.7/bin"
+export VAULT_ADDR="https://vault-server.services.pathai.com"
