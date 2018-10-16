@@ -8,6 +8,7 @@ alias ls="gls"
 alias mkdir="gmkdir"
 
 # Various things.
+alias dnsfix="sudo killall -HUP mDNSResponder"
 alias listen="lsof -i -P | grep -i listen"
 alias pip="pip3"
 alias python="python3"
