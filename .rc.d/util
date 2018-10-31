@@ -2,8 +2,15 @@
 #
 # General utility functions.
 
+update_ps1() {
+  local current_git_branch=$(git_current_branch)
+  local current_kubernetes_context=$(kubernetes_get_context)
+
+  export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] (${current_kubernetes_context}) [${current_git_branch}] \n \W \$\[\033[00m\] "
+}
+
 # Open a TCP port on the default interface.
-fwopen() {
+open_port() {
   if (( $# < 1 )); then
     echo "Usage: fwopen <port>";
     return 1;
@@ -14,7 +21,7 @@ fwopen() {
 }
 
 # Find all files with names containing a string.
-fn() {
+search() {
   find . -name "*$1*"
 }
 
@@ -28,7 +35,7 @@ pause() {
 }
 
 # Find large files under a directory.
-duf() {
+du_find() {
   if (( $# < 1 )); then
     echo "Usage: duf <source>";
     return 1;

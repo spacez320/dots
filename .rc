@@ -3,7 +3,7 @@
 # Shell agnostic non-login configuration.
 
 set -o vi
-PROMPT_COMMAND="history -a;"
+PROMPT_COMMAND="update_ps1; history -a"
 
 # Helpers
 

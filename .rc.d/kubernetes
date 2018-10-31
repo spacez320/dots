@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Helper utilities for Kubernetes.
+
+# Get the current context.
+kubernetes_get_context() {
+  echo $(kubectl config current-context)
+}

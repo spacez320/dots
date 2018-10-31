@@ -4,10 +4,15 @@
 
 PATCHES_DIR=$HOME/tmp/patches
 
+# Get the current Git branch.
+git_current_branch() {
+  echo $(git branch | grep '*' | awk '{print $2}')
+}
+
 # Generate a full-indexed diff between the current branch and master.
 git_gen_patch() {
   local repo=$(basename `git rev-parse --show-toplevel`)
-  local lbranch=`git branch | grep '*' | awk '{print $2}'`
+  local lbranch=$(git_current_branch)
 
   for i in master $lbranch; do
     git checkout $i && git pull --rebase origin master
@@ -23,6 +28,6 @@ git_gen_patch() {
 git_del_remotes() {
   for branch in $(git branch --remote | grep --color=never $USER); do
     next_branch=$(echo $branch | sed 's/origin\///')
-    git push origin :$next_branch;
+    git push origin :$next_branch
   done
 }
