@@ -1,22 +1,27 @@
 #!/bin/bash
+#
+# SSL helper functions.
 
-# get the x509 output of an ssl handshake
-function wx509 {
-  echo |
-    openssl s_client -connect $1 | \
-    openssl x509 -noout -text
+# Get the x509 output of an ssl handshake.
+ssl_wget_x509() {
+  echo | openssl s_client -connect $1 | openssl x509 -noout -text
 }
 
-# get a list of DNS entries in a san ssl cert
-function san {
-  wx509 $@ 2>/dev/null | \
-    grep --color=never DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g" \
-    | tr -d ' '
+# Get a list of DNS entries in a SAN enabled SSL cert.
+ssl_wget_san() {
+  ssl_wget_x509 $1 2>/dev/null | \
+    grep --color=never DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
 }
 
-# checks a certificate against a key
-function ckcrt {
+# Checks a certificate against a key.
+ssl_check() {
   diff \
     <(openssl x509 -in $1 -noout -modulus) \
     <(openssl rsa -in $2 -noout -modulus)
+}
+
+# Produces a self-signed SSL cert and key.
+ssl_mkcert() {
+  openssl req -x509 -nodes -days 5 -newkey rsa:2048 \
+    -keyout ./$1.key -out ./$1.crt
 }

@@ -8,7 +8,7 @@ alias pe='pa --enable'
 alias pt='pa --test'
 
 # Runs Puppet with an optional environment.
-function pr() {
+puppet_run() {
   local environment="production"
   [ -n "$1" ] && environment="$1"
 
@@ -16,7 +16,7 @@ function pr() {
 }
 
 # Freezes puppet into an optional environment.
-function pf() {
+puppet_freeze() {
   local environment="production"
   [ -n "$1" ] && environment=$1 && shift
 
@@ -26,3 +26,6 @@ function pf() {
   pe && pt --environment=${environment} ${passargs}
   pd
 }
+
+alias pr="puppet_run"
+alias pf="puppet_freeze"
