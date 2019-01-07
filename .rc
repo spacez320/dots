@@ -20,6 +20,7 @@ alias ls='ls --color=never'
 alias pls='sudo !!'
 alias rm='rm -i'
 alias sl='ls'
+alias virtualenv='virtualenv --python=python3.7'
 
 # Shortcuts
 
