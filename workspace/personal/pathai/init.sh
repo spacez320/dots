@@ -9,6 +9,7 @@ brew install \
   argoproj/tap/argo \
   automake \
   coreutils \
+  dep \
   direnv \
   findutils \
   go \
@@ -18,7 +19,9 @@ brew install \
   kubernetes-helm \
   libtool \
   libxmlsec1 \
+  make \
   npm \
+  packer \
   pkg-config \
   postgresql \
   pyenv-virtualenv \
