@@ -48,3 +48,11 @@ du_find() {
 jcurl() {
   curl --header "Accept: application/json" --silent $1 | json_pp
 }
+
+# Convert JSON to YAML.
+json2yaml() {
+  python -c "
+import json, yaml, sys;
+yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)" < \
+  $1 > $2
+}
