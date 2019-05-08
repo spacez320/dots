@@ -3,7 +3,8 @@
 # In case I ever need to rebuild.
 
 brew cask install \
-  aptible
+  aptible \
+  minikube
 
 brew install \
   argoproj/tap/argo \
