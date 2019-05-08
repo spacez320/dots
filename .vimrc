@@ -65,6 +65,7 @@ autocmd FileType python set commentstring=#\ %s
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_python_checkers=['flake8']
 
 """ Functions
 
