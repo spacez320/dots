@@ -39,5 +39,6 @@ pip install --user \
   awscli \
   flake8 \
   pgsanity \
+  powerline-status \
   pytest \
   virtualenv
