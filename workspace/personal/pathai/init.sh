@@ -9,6 +9,7 @@ brew cask install \
 brew install \
   argoproj/tap/argo \
   automake \
+  black \
   coreutils \
   dep \
   direnv \
