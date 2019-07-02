@@ -6,6 +6,9 @@ brew cask install \
   aptible \
   minikube
 
+brew tap \
+  weaveworks/tap
+
 brew install \
   argoproj/tap/argo \
   automake \
@@ -32,6 +35,7 @@ brew install \
   telnet \
   vault \
   watch \
+  weaveworks/tap/eksctl \
   wget
 
 sudo easy_install pip
