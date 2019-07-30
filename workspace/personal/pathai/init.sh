@@ -26,6 +26,7 @@ brew install \
   libxmlsec1 \
   make \
   npm \
+  openssl \
   packer \
   pkg-config \
   postgresql \
