@@ -3,8 +3,8 @@
 # General utility functions.
 
 update_ps1() {
-  local current_aws_role=$(echo $PATHAI_WORLD)
-  current_aws_role=${current_aws_role:-"common"}
+  local current_aws_role=$(echo $AWS_ROLE)
+  current_aws_role=${current_aws_role:-"default"}
   local current_git_branch=$(git_current_branch)
   local current_kubernetes_context=$(kubernetes_get_context)
 
