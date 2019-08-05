@@ -17,6 +17,7 @@ brew install \
   dep \
   direnv \
   findutils \
+  glide \
   go \
   jq \
   kubeless \
