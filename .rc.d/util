@@ -8,7 +8,7 @@ update_ps1() {
   local current_git_branch=$(git_current_branch)
   local current_kubernetes_context=$(kubernetes_get_context)
 
-  export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] [🗂  ] $(pwd) [🔀 ] ${current_git_branch} [☸  ] ${current_kubernetes_context} [🌎 ] ${current_aws_role} \n \W \$\[\033[00m\] "
+  export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] // $(pwd) // ${current_git_branch} // ${current_kubernetes_context} // ${current_aws_role} \n \W \$\[\033[00m\] "
 }
 
 # Open a TCP port on the default interface.
