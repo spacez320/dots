@@ -13,6 +13,7 @@ brew install \
   argoproj/tap/argo \
   automake \
   black \
+  cfssl \
   coreutils \
   dep \
   direnv \
