@@ -3,6 +3,7 @@
 # In case I ever need to rebuild.
 
 brew cask install \
+  adoptopenjdk \
   aptible \
   minikube
 
@@ -13,6 +14,7 @@ brew install \
   argoproj/tap/argo \
   automake \
   black \
+  cdrtools \
   cfssl \
   coreutils \
   dep \
@@ -20,6 +22,7 @@ brew install \
   findutils \
   glide \
   go \
+  gradle \
   jq \
   kubeless \
   kubernetes-cli \
@@ -27,6 +30,7 @@ brew install \
   libtool \
   libxmlsec1 \
   make \
+  neofetch \
   npm \
   openssl \
   packer \
