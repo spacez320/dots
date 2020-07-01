@@ -4,6 +4,7 @@
 
 brew cask install \
   adoptopenjdk \
+  alacritty \
   aptible \
   minikube
 
