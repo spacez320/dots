@@ -15,6 +15,7 @@
   pf = "!git cf && git push --force"
   pm = "pull --rebase origin master"
   s  = "status"
+  smu = "submodule update --init --recursive"
   ss = "stash save -u"
 [diff]
   tool = vimdiff
