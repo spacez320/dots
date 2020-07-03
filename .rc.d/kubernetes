@@ -6,5 +6,11 @@ export PATH=$PATH:/opt/kubernetes
 
 # Get the current context.
 kubernetes_get_context() {
-  echo $(kubectl config current-context)
+  local context=$(kubectl config current-context 2>/dev/null)
+
+  if [[ $context == "" ]]; then
+    echo "???"
+  else
+    echo $context
+  fi
 }

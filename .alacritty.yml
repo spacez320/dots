@@ -1,0 +1,41 @@
+background_opacity: 0.85
+colors:
+  bright:
+    black:   '#000507'
+    blue:    '#023550'
+    cyan:    '#02899e'
+    green:   '#93d0cb'
+    magenta: '#023550'
+    red:     '#d9483b'
+    white:   '#a0cecb'
+    yellow:  '#f2c12e'
+  dim:
+    black:   '#000507'
+    blue:    '#023550'
+    cyan:    '#02899e'
+    green:   '#93d0cb'
+    magenta: '#023550'
+    red:     '#d9483b'
+    white:   '#a0cecb'
+    yellow:  '#f2c12e'
+  normal:
+    black:   '#000507'
+    blue:    '#023550'
+    cyan:    '#02899e'
+    green:   '#93d0cb'
+    magenta: '#023550'
+    red:     '#d9483b'
+    white:   '#a0cecb'
+    yellow:  '#f2c12e'
+  primary:
+     background: '#000507'
+     foreground: '#a0cecb'
+dynamic_title: true
+font:
+  bold:
+    style: Regular
+key_bindings:
+  - { key: N, mods: Command, action: SpawnNewInstance }
+window:
+  decorations: none
+  startup_mode: SimpleFullscreen
