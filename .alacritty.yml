@@ -34,8 +34,9 @@ dynamic_title: true
 font:
   bold:
     style: Regular
+  size: 8
 key_bindings:
-  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: N, mods: Control, action: SpawnNewInstance }
 window:
   decorations: none
-  startup_mode: SimpleFullscreen
+  startup_mode: Maximized
