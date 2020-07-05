@@ -34,7 +34,7 @@ dynamic_title: true
 font:
   bold:
     style: Regular
-  size: 8
+  size: 10
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
 window:
