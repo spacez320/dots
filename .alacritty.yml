@@ -33,8 +33,11 @@ colors:
 dynamic_title: true
 font:
   bold:
+    family: Inconsolata for Powerline
     style: Regular
-  size: 10
+  normal:
+    family: Inconsolata for Powerline
+  size: 12
 key_bindings:
   - { key: Key0, mods: Alt, chars: "\x1b0" }
   - { key: Key1, mods: Alt, chars: "\x1b1" }
