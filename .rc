@@ -5,7 +5,7 @@
 set -o vi
 PROMPT_COMMAND="update_ps1; history -a"
 
-# Helpers
+# Defaults
 
 alias chromium='chromium --incognito'
 alias dateo='date +%Y%m%d%H%M%S'
@@ -13,26 +13,40 @@ alias dig='dig +short'
 alias egrep='egrep --color=always'
 alias firefox='firefox -new-window'
 alias grep='grep --color=always'
-alias ipext='curl --silent icanhazip.com'
 alias less='less -R'
-alias listen='sudo netstat --listen --tcp --numeric --program'
 alias ls='ls --color=never'
-alias pls='sudo !!'
 alias rm='rm -i'
-alias sl='ls'
+alias sudo='sudo '
 alias virtualenv='virtualenv --python=python3.7'
+
+# Helpers
+
+alias ipext='curl --silent icanhazip.com'
+alias listen='sudo netstat --listen --tcp --numeric --program'
+alias pls='sudo !!'
+alias reload='sudo systemctl reload'
+alias restart='sudo systemctl restart'
+alias sl='ls'
+alias start='sudo systemctl start'
+alias status='sudo systemctl status'
+alias stop='sudo systemctl stop'
 
 # Shortcuts
 
 alias d='docker'
 alias dc='docker-compose'
 alias g='git'
-alias j='sudo journalctl'
-alias jf='sudo journalctl --follow --unit'
+alias jd='sudo journalctl'
+alias jdf='sudo journalctl --follow --unit'
 alias k='kubectl'
-alias ksh='kubectl run fedora --image=fedora --restart=Never --stdin=true --tty=true /bin/bash'
-alias s='ssh'
+alias krf='kubectl run fedora --image=fedora --restart=Never --stdin=true --tty=true /bin/bash'
+alias s='sudo'
+alias sc='sudo salt-call'
+alias sca='sudo salt-call state.apply'
+alias sch='sudo salt-call state.highstate'
+alias scs='sudo salt-call state.sls'
 alias sd='sudo systemctl'
+alias tf='tail -f'
 alias v='vim'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
