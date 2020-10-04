@@ -30,7 +30,6 @@ colors:
   primary:
      background: '#000507'
      foreground: '#a0cecb'
-dynamic_title: true
 font:
   bold:
     style: Regular
@@ -39,4 +38,5 @@ key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
 window:
   decorations: none
+  dynamic_title: true
   startup_mode: Maximized
