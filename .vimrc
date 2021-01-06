@@ -21,6 +21,7 @@ set listchars=tab:»·,trail:·
 set ls=2
 set modeline
 set nocompatible
+set nofoldenable
 set nowrap
 set number
 set smartcase

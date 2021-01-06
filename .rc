@@ -16,8 +16,10 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias ls='ls --color=never'
 alias rm='rm -i'
+alias sl='ls'
 alias sudo='sudo '
 alias virtualenv='virtualenv --python=python3.7'
+alias watch='watch '
 
 # Helpers
 
