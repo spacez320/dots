@@ -44,7 +44,8 @@ brew install \
   vault \
   watch \
   weaveworks/tap/eksctl \
-  wget
+  wget \
+  yq
 
 sudo easy_install pip
 
@@ -55,3 +56,6 @@ pip install --user \
   powerline-status \
   pytest \
   virtualenv
+
+npm install --global \
+  jwt-cli

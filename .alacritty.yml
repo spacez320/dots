@@ -37,7 +37,7 @@ font:
     style: Regular
   normal:
     family: Inconsolata for Powerline
-  size: 12
+  size: 10
 key_bindings:
   - { key: Key0, mods: Alt, chars: "\x1b0" }
   - { key: Key1, mods: Alt, chars: "\x1b1" }
