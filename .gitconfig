@@ -5,6 +5,7 @@
   excludesfile = /home/mcoleman/.gitignore_global
 [alias]
   b  = "branch"
+  c  = "checkout"
   ca = "!git add . && git commit --message"
   cf = "!git add . && git commit --all --amend --no-edit"
   d  = "diff"
@@ -12,12 +13,14 @@
   dr = "!. ~/.rc.d/git && git_del_remotes"
   gp = "!. ~/.rc.d/git && git_gen_patch"
   p  = "push"
+  pd = "push --delete"
   pf = "!git cf && git push --force"
-  pm = "pull --rebase origin master"
+  pr = "pull --rebase"
+  prm = "pull --rebase origin master"
   s  = "status"
   smu = "submodule update --init --recursive"
   ss = "stash save -u"
 [diff]
   tool = vimdiff
 [push]
-  default = simple
+  default = current
