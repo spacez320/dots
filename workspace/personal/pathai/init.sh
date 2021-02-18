@@ -49,10 +49,12 @@ brew install \
 
 sudo easy_install pip
 
-pip install --user \
+pip3 install --user \
   awscli \
   flake8 \
+  kafka-shell \
   pgsanity \
+  poetry \
   powerline-status \
   pytest \
   virtualenv

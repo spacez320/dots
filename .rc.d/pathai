@@ -16,7 +16,7 @@ alias vlogin="vault login -method=okta username=$USER@pathai.com"
 alias xclip="pbcopy"
 
 # Environment.
-export PATH="$PATH:/Users/matt.coleman/Library/Python/2.7/bin"
+export PATH="$PATH:/Users/matt.coleman/Library/Python/3.9/bin"
 export VAULT_ADDR="https://vault-server.services.pathai.com"
 
 # Reset commits to my PathAI email.
@@ -32,4 +32,14 @@ pathai_git_reset_author() {
 # Log-in to PathAI Vault.
 pathai_vault_login() {
   vault login -method okta username=matt.coleman@pathai.com 
+}
+
+# Create the SSH key needed to SSH.
+pathai_ssh_cert() {
+  vault write \
+    -field=signed_key \
+    ssh/sign/sre \
+    public_key=@$HOME/.ssh/pathai.pub > \
+    ~/.ssh/pathai-vault-cert.pub && \
+  chmod 600 ~/.ssh/pathai-vault-cert.pub
 }
