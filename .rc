@@ -48,6 +48,8 @@ alias sca='sudo salt-call state.apply'
 alias sch='sudo salt-call state.highstate'
 alias scs='sudo salt-call state.sls'
 alias sd='sudo systemctl'
+alias t='tmux'
+alias ta='tmux attach -d -t'
 alias tf='tail -f'
 alias v='vim'
 
