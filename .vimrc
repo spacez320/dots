@@ -5,6 +5,10 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 """ Configuration
 
 filetype plugin indent on
@@ -50,10 +54,6 @@ vnoremap . :normal .<CR>
 
 " Commands
 command W w !sudo tee % > /dev/null
-
-" Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
 
 " Commentary
 autocmd FileType haproxy set commentstring=#\ %s
