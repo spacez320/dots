@@ -10,6 +10,7 @@
   cf = "!git add . && git commit --all --amend --no-edit"
   d  = "diff"
   dc = "diff --color"
+  df = "diff --no-prefix -U1000"
   dr = "!. ~/.rc.d/git && git_del_remotes"
   gp = "!. ~/.rc.d/git && git_gen_patch"
   p  = "push"
