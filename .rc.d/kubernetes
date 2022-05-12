@@ -2,7 +2,7 @@
 #
 # Helper utilities for Kubernetes.
 
-export PATH=$PATH:/opt/kubernetes
+export PATH="${PATH}:/opt/kubernetes:${HOME}/.krew/bin"
 
 # Get the current context.
 kubernetes_get_context() {
