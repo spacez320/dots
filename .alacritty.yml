@@ -39,4 +39,4 @@ window:
   decorations: none
   dynamic_title: true
   opacity: 0.85
-  startup_mode: Fullscreen
+  startup_mode: windowed
