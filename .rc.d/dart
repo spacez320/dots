@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Dart shell configuration.
-
-export PATH=$PATH:/opt/dart-sdk/bin
-
-alias dartium='/opt/dartium/chrome --user-data-dir=$HOME/.config/dartium'

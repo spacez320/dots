@@ -24,6 +24,6 @@ repriv() {
 }
 
 export PRIV=`priv`
-export PASSWORD_STORE_DIR=$PRIV/pass
+export PASSWORD_STORE_DIR="${PRIV}/pass"
 
 alias gpg='gpg --homedir $PRIV/gnupg'

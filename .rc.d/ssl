@@ -2,17 +2,6 @@
 #
 # SSL helper functions.
 
-# Get the x509 output of an ssl handshake.
-ssl_wget_x509() {
-  echo | openssl s_client -connect $1 | openssl x509 -noout -text
-}
-
-# Get a list of DNS entries in a SAN enabled SSL cert.
-ssl_wget_san() {
-  ssl_wget_x509 $1 2>/dev/null | \
-    grep --color=never DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
-}
-
 # Checks a certificate against a key.
 ssl_check() {
   diff \
@@ -24,4 +13,15 @@ ssl_check() {
 ssl_mkcert() {
   openssl req -x509 -nodes -days 5 -newkey rsa:2048 \
     -keyout ./$1.key -out ./$1.crt
+}
+
+# Get the x509 output of an SSL handshake.
+ssl_wget_x509() {
+  echo | openssl s_client -connect $1 | openssl x509 -noout -text
+}
+
+# Get a list of DNS entries in a SAN enabled SSL cert.
+ssl_wget_san() {
+  ssl_wget_x509 $1 2>/dev/null | \
+    grep --color=never DNS | sed "s/\, /\n/g" | sed "s/DNS//g" | sed "s/://g"
 }

@@ -13,7 +13,7 @@ call pathogen#infect()
 filetype plugin indent on
 
 set autoindent
-set cc=80
+set cc=99
 set dir=$HOME/.vim/swp
 set encoding=utf-8
 set expandtab
@@ -40,7 +40,6 @@ autocmd VimLeave * :!clear
 
 " Clear whitespace.
 vmap ,w :s/\s*$//g<CR> :nohl<CR>
-" vnoremap . :normal .<CR>  # TODO Not sure what this does.
 
 " Sudo write.
 command W w !sudo tee % > /dev/null

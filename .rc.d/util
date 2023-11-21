@@ -2,6 +2,24 @@
 #
 # General utility functions.
 
+# Find large files under a directory.
+du_find() {
+  find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
+}
+
+# JSON friendly cURL call.
+jcurl() {
+  curl --header "Accept: application/json" --silent $1 | json_pp
+}
+
+# Convert JSON to YAML.
+json2yaml() {
+  python -c "
+import json, yaml, sys;
+yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)" < \
+  $1 > $2
+}
+
 update_ps1() {
   local current_aws_role=$(echo $AWS_ROLE)
   current_aws_role=${current_aws_role:-"default"}
@@ -22,11 +40,6 @@ open_port() {
   sudo firewall-cmd --list-ports | grep $1
 }
 
-# Find all files with names containing a string.
-search() {
-  find . -name "*$1*"
-}
-
 # Pause for a keystroke.
 pause() {
   if grep 'bash' <<< $(echo $SHELL); then
@@ -36,25 +49,7 @@ pause() {
   fi
 }
 
-# Find large files under a directory.
-du_find() {
-  if (( $# < 1 )); then
-    echo "Usage: duf <source>";
-    return 1;
-  fi
-
-  find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
-}
-
-# JSON friendly cURL call.
-jcurl() {
-  curl --header "Accept: application/json" --silent $1 | json_pp
-}
-
-# Convert JSON to YAML.
-json2yaml() {
-  python -c "
-import json, yaml, sys;
-yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)" < \
-  $1 > $2
+# Find all files with names containing a string.
+search() {
+  find . -name "*$1*"
 }

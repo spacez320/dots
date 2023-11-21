@@ -2,8 +2,6 @@
 #
 # Helper utilities for Kubernetes.
 
-export PATH="${PATH}:/opt/kubernetes:${HOME}/.krew/bin"
-
 # Get the current context.
 kubernetes_get_context() {
   local context=$(kubectl config current-context 2>/dev/null)

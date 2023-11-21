@@ -2,11 +2,19 @@
 #
 # Git shell configuration.
 
-GIT_PATCHES_DIR=$HOME/tmp/patches
+export GIT_PATCHES_DIR="${HOME}/tmp/patches"
 
 # Get the current Git branch.
 git_current_branch() {
   echo $(git branch 2>/dev/null | grep '*' | awk '{print $2}')
+}
+
+# Delete all my remote branches.
+git_del_remotes() {
+  for branch in $(git branch --remote | grep --color=never $USER); do
+    next_branch=$(echo $branch | sed 's/origin\///')
+    git push origin :$next_branch
+  done
 }
 
 # Generate a full-indexed diff between the current branch and master.
@@ -22,12 +30,4 @@ git_gen_patch() {
 
   git diff --full-index master..$lbranch > \
     "${GIT_PATCHES_DIR}/${repo}_${lbranch}.patch"
-}
-
-# Delete all my remote branches.
-git_del_remotes() {
-  for branch in $(git branch --remote | grep --color=never $USER); do
-    next_branch=$(echo $branch | sed 's/origin\///')
-    git push origin :$next_branch
-  done
 }
