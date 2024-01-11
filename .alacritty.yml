@@ -32,7 +32,7 @@ colors:
 font:
   bold:
     style: Regular
-  size: 10
+  size: 8
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
 window:
