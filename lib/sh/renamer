@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Recursive file renaming tool.
+
+main() {
+  local new=
+  while read -r f; do
+    if [[ "${f}" == *"_"* ]]; then
+      new="$(echo "${f}" | tr -s '_' ' ')"
+      echo "Renaming ${f} ..."
+      mv "${f}" "${new}"
+    fi
+  done <<< "$(find . )"
+}
+
+main "${@}"
