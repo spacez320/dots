@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-autoformat"]
 	path = .vim/bundle/vim-autoformat
 	url = https://github.com/vim-autoformat/vim-autoformat.git
+[submodule "/home/matthew/.local/share/nvim/lazy/lazy.nvim"]
+	path = /home/matthew/.local/share/nvim/lazy/lazy.nvim
+	url = https://github.com/folke/lazy.nvim.git

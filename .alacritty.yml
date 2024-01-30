@@ -31,7 +31,9 @@ colors:
      foreground: '#a0cecb'
 font:
   bold:
-    style: Regular
+    style: normal
+  normal:
+    family: "VictorMono NFP Medium"  # See: https://www.nerdfonts.com/font-downloads
   size: 8
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }

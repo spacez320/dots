@@ -1,0 +1,246 @@
+local colors = {
+  black = "#000507",
+  blue = "#023550",
+  cyan = "#02899e",
+  green = "#93d0cb",
+  red = "#d9483b",
+  white = "#a0cecb",
+  yellow = "#f2c12e",
+}
+
+---
+--- Vim
+---
+
+-- Enble Vim settings.
+vim.cmd([[
+set autoindent
+set background=light
+set cc=99
+set expandtab
+set incsearch
+set list
+set listchars=tab:»·,trail:·
+set ls=2
+set modeline
+set nowrap
+set number
+set shiftwidth=2
+set smartcase
+set softtabstop=2
+set statusline+=\ %f%=%l/%L\
+set t_Co=256
+set tabstop=2
+]])
+
+-- Remove trailing whitespace on save.
+vim.api.nvim_create_autocmd("BufWritePre", {
+  command = "%s/\\s\\+$//e",
+  pattern = "*",
+})
+
+-- Adjust some highlight colors.
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+
+---
+--- Lazy
+---
+
+-- Settings for lazy.
+local lazyDataPath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazyOpts = {}
+local lazyPlugins = {
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    },
+    opts = function()
+      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
+      local cmp = require("cmp")
+      local defaults = require("cmp.config.default")()
+
+      return {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
+
+        experimental = {
+          ghost_text = {
+            hl_group = "CmpGhostText",
+          },
+        },
+
+        mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-CR>"] = function(fallback)
+            cmp.abort()
+            fallback()
+          end,
+          ["<S-CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }),
+        }),
+
+        sorting = defaults.sorting,
+
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "path" },
+        }, {
+          { name = "buffer" },
+        }),
+
+        window = {
+          completion = cmp.config.window.bordered(),
+        },
+      }
+    end
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      indent = { char = "|" }
+    }
+  },
+  { "mfussenegger/nvim-lint" },
+  { "neovim/nvim-lspconfig" },
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate"
+  },
+  { "nvim-treesitter/nvim-treesitter-context" },
+  { "stevearc/conform.nvim" },
+}
+
+-- Load the Lazy plugin manager.
+if not vim.loop.fs_stat(lazyDataPath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazyDataPath,
+  })
+end
+vim.opt.rtp:prepend(lazyDataPath)
+require("lazy").setup(lazyPlugins, lazyOpts)
+
+---
+--- Plugins
+---
+
+--- Set-up trouble.
+
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+
+--- Set-up LSP.
+
+local lsp = require("lspconfig")
+lsp.gopls.setup({})
+lsp.jedi_language_server.setup({})
+
+--- Set-up conform.
+
+require("conform").setup({
+  formatters_by_ft = {
+    erlang = {"erlfmt"},
+    go = {"gofmt"},
+    python = {"black"},
+  },
+  format_on_save = {},
+})
+
+--- Set-up nvim-lint.
+
+require("lint").linters_by_ft = {
+  python = {"flake8"},
+}
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
+--- Set-up comment.
+
+require("Comment").setup()
+
+--- Set-up nvim-treesitter.
+
+require("nvim-treesitter.configs").setup({
+  highlight = {
+    enable = true
+  }
+})
+
+--- Set-up nvim-treesitter-context.
+
+require("treesitter-context").setup()
+
+--- Set-up lualine.
+
+-- Override a theme.
+local customTheme = require("lualine.themes.gruvbox")
+customTheme = {
+	normal = {
+			a = {bg = colors.blue, fg = colors.black, gui = "bold"},
+			b = {bg = colors.black, fg = colors.white},
+			c = {bg = colors.black, fg = colors.white}
+	},
+	insert = {
+			a = {bg = colors.green, fg = colors.black, gui = "bold"},
+			b = {bg = colors.black, fg = colors.white},
+			c = {bg = colors.black, fg = colors.white}
+	},
+	visual = {
+		a = {bg = colors.yellow, fg = colors.black, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
+	},
+	replace = {
+		a = {bg = colors.red, fg = colors.black, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
+	},
+	command = {
+		a = {bg = colors.cyan, fg = colors.black, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
+	},
+	inactive = {
+		a = {bg = colors.black, fg = colors.white, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
+	},
+}
+require("lualine").setup({
+  options = {
+    theme = customTheme
+  }
+})

@@ -43,6 +43,6 @@ alias sd='sudo systemctl'
 alias t='tmux'
 alias ta='tmux attach -d -t'
 alias tf='tail -f'
-alias v='vim'
+alias v='nvim'
 
 for f in $HOME/.rc.d/*; do [ -r $f ] && . $f; done &> /dev/null
