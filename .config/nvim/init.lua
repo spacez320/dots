@@ -16,7 +16,7 @@ local colors = {
 vim.cmd([[
 set autoindent
 set background=light
-set cc=99
+set cc=100
 set expandtab
 set incsearch
 set list
@@ -31,6 +31,7 @@ set softtabstop=2
 set statusline+=\ %f%=%l/%L\
 set t_Co=256
 set tabstop=2
+set textwidth=100
 ]])
 
 -- Remove trailing whitespace on save.
@@ -210,14 +211,14 @@ require("treesitter-context").setup()
 local customTheme = require("lualine.themes.gruvbox")
 customTheme = {
 	normal = {
-			a = {bg = colors.blue, fg = colors.black, gui = "bold"},
-			b = {bg = colors.black, fg = colors.white},
-			c = {bg = colors.black, fg = colors.white}
+		a = {bg = colors.blue, fg = colors.black, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
 	},
 	insert = {
-			a = {bg = colors.green, fg = colors.black, gui = "bold"},
-			b = {bg = colors.black, fg = colors.white},
-			c = {bg = colors.black, fg = colors.white}
+		a = {bg = colors.green, fg = colors.black, gui = "bold"},
+		b = {bg = colors.black, fg = colors.white},
+		c = {bg = colors.black, fg = colors.white}
 	},
 	visual = {
 		a = {bg = colors.yellow, fg = colors.black, gui = "bold"},
