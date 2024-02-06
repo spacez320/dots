@@ -2,14 +2,6 @@
 #
 # Configuration for non-login bash.
 
-### Sources
-
-# global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
-# general rc import
-if [ -f ~/.rc ]; then
-  . ~/.rc
-fi
+for f in /etc/bashrc "${HOME}/.rc" "${HOME}/.env"; do
+  . $f
+done

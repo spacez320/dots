@@ -40,5 +40,5 @@ key_bindings:
 window:
   decorations: none
   dynamic_title: true
-  opacity: 0.85
+  opacity: 0.95
   startup_mode: windowed
