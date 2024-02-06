@@ -4,3 +4,9 @@
 [submodule "/home/matthew/.tmux/plugins/tpm"]
 	path = /home/matthew/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".local/share/nvim/lazy/lazy.nvim"]
+	path = .local/share/nvim/lazy/lazy.nvim
+	url = https://github.com/folke/lazy.nvim
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
