@@ -22,3 +22,6 @@
 [submodule "/home/matthew/.local/share/nvim/lazy/lazy.nvim"]
 	path = /home/matthew/.local/share/nvim/lazy/lazy.nvim
 	url = https://github.com/folke/lazy.nvim.git
+[submodule "/home/matthew/.tmux/plugins/tpm"]
+	path = /home/matthew/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
