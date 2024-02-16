@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Laptop docking and undocking.
+
+dock() {
+  for mount in heiros pragmata; do
+    mount "${HOME}/mnt/${mount}"
+  done
+}
+
+undock() {
+  killall rhythmbox
+
+  for mount in heiros pragmata; do
+    umount "${HOME}/mnt/${mount}"
+  done
+}
