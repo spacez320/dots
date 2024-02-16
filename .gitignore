@@ -1,3 +1,5 @@
 /*
 /*/
+!/.env.d
+/.env.d/secret
 !/.rc.d
