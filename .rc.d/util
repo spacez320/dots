@@ -3,13 +3,23 @@
 # General utility functions.
 
 # Find large files under a directory.
-du_find() {
+duf() {
+  if (( $# < 1 )); then
+    echo "Usage: duf <path>";
+    return 1;
+  fi
+
   find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
 }
 
 # JSON friendly cURL call.
 jcurl() {
-  curl --header "Accept: application/json" --silent $1 | json_pp
+  if (( $# < 1 )); then
+    echo "Usage: jcurl <url>";
+    return 1;
+  fi
+
+  curl --header "Accept: application/json" --silent $1 | jq
 }
 
 # Convert JSON to YAML.
@@ -51,5 +61,20 @@ pause() {
 
 # Find all files with names containing a string.
 search() {
+  if (( $# < 1 )); then
+    echo "Usage: search <thing>";
+    return 1;
+  fi
+
   find . -name "*$1*"
+}
+
+# Start a file server.
+serve() {
+  if (( $# < 1 )); then
+    echo "Usage: serve <port>";
+    return 1;
+  fi
+
+  python -m http.server -b 0.0.0.0 -d . $1
 }
