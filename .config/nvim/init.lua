@@ -174,7 +174,30 @@ require("conform").setup({
     go = {"gofmt"},
     python = {"black"},
   },
-  format_on_save = {},
+  format_on_save = function(buf)
+    if  vim.b[buf].disable_autoformat or vim.g.disable_autoformat then
+      return
+    end
+    return { lsp_fallback = true, timeout_ms = 500 }
+  end,
+})
+
+vim.api.nvim_create_user_command("FormatOff", function(args)
+  if args.bang then
+    -- FormatOff! will disable formatting just for this buffer.
+    vim.b.disable_autoformat = true
+  else
+    vim.g.disable_autoformat = true
+  end
+end, {
+  bang = true,
+  desc = "Disable autoformatting-on-save."
+})
+vim.api.nvim_create_user_command("FormatOn", function()
+  vim.b.disable_autoformat = false
+  vim.g.disable_autoformat = false
+end, {
+  desc = "Enable autoformatting-on-save."
 })
 
 --- Set-up nvim-lint.
