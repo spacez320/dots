@@ -172,7 +172,7 @@ require("conform").setup({
   formatters_by_ft = {
     erlang = {"erlfmt"},
     go = {"gofmt"},
-    python = {"black"},
+    python = {"black", "isort"},
   },
   format_on_save = function(buf)
     if  vim.b[buf].disable_autoformat or vim.g.disable_autoformat then
