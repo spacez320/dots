@@ -1,0 +1,53 @@
+[colors.bright]
+black = "#000507"
+blue = "#023550"
+cyan = "#02899e"
+green = "#93d0cb"
+magenta = "#023550"
+red = "#d9483b"
+white = "#a0cecb"
+yellow = "#f2c12e"
+
+[colors.dim]
+black = "#000507"
+blue = "#023550"
+cyan = "#02899e"
+green = "#93d0cb"
+magenta = "#023550"
+red = "#d9483b"
+white = "#a0cecb"
+yellow = "#f2c12e"
+
+[colors.normal]
+black = "#000507"
+blue = "#023550"
+cyan = "#02899e"
+green = "#93d0cb"
+magenta = "#023550"
+red = "#d9483b"
+white = "#a0cecb"
+yellow = "#f2c12e"
+
+[colors.primary]
+background = "#000507"
+foreground = "#a0cecb"
+
+[font]
+size = 12
+
+[font.bold]
+style = "normal"
+
+[font.normal]
+family = "VictorMono NFP Medium"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control"
+
+[window]
+decorations = "none"
+dynamic_title = true
+opacity = 0.95
+startup_mode = "windowed"
