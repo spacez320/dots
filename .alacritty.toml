@@ -33,7 +33,7 @@ background = "#000507"
 foreground = "#a0cecb"
 
 [font]
-size = 12
+size = 8
 
 [font.bold]
 style = "normal"
