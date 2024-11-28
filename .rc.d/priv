@@ -7,20 +7,16 @@ priv() {
   for mount in axios deontos eidos heiros; do
     if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
       echo "${HOME}/mnt/${mount}"
-      break
+      return
     fi
   done
-}
 
-# Refershes a priv mount.
-repriv() {
-  local mount=$1
-
-  sudo killall gpg-agent 2> /dev/null
-  sudo umount --force "${HOME}/mnt/${mount}" 2> /dev/null
-  mount "${HOME}/mnt/${mount}"
-
-  [[ $? -eq 0 ]] && echo "${HOME}/mnt/${mount}"
+  for mount in pragmata; do
+    if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
+      echo "${HOME}/mnt/${mount}/priv"
+      return
+    fi
+  done
 }
 
 export PRIV=`priv`
