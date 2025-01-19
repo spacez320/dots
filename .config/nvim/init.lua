@@ -3,6 +3,7 @@ local colors = {
   blue = "#023550",
   cyan = "#02899e",
   green = "#93d0cb",
+  orange = "#d45500",
   red = "#d9483b",
   white = "#a0cecb",
   yellow = "#f2c12e",
@@ -136,6 +137,11 @@ local lazyPlugins = {
   },
   { "nvim-treesitter/nvim-treesitter-context" },
   { "stevearc/conform.nvim" },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+  },
 }
 
 -- Load the Lazy plugin manager.
@@ -269,3 +275,30 @@ require("lualine").setup({
     theme = customTheme
   }
 })
+
+-- Set-up colorscheme.
+
+-- Override a theme.
+require("cyberdream").setup({
+  transparent = true,
+  terminal_colors = true,
+  theme = {
+    colors = {
+      bg = colors.black,
+      bgAlt = colors.blue,
+      bgHighlight = colors.blue,
+      blue = colors.white,
+      cyan = colors.white,
+      fg = colors.white,
+      green = colors.red,
+      grey = colors.blue,
+      magenta = colors.orange,
+      orange = colors.orange,
+      pink = colors.red,
+      purple = colors.white,
+      red = colors.yellow,
+      yellow = colors.orange,
+    }
+  }
+})
+vim.cmd([[colorscheme cyberdream]])
