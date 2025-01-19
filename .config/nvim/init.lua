@@ -15,7 +15,7 @@ local colors = {
 -- Enble Vim settings.
 vim.cmd([[
 set autoindent
-set background=light
+set background=dark
 set cc=100
 set expandtab
 set incsearch
