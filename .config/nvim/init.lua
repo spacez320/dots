@@ -142,6 +142,27 @@ local lazyPlugins = {
     lazy = false,
     priority = 1000,
   },
+  {
+    "yetone/avante.nvim",
+    build = "make",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+		},
+    event = "VeryLazy",
+    opts = {
+      ollama = {
+        -- model = "codellama:7b-code",
+        model = "mistral",
+        -- num_ctx = 512,
+        -- temperature = 0,
+      },
+      provider = "ollama",
+    },
+    version = false,
+  },
 }
 
 -- Load the Lazy plugin manager.

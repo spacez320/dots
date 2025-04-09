@@ -9,6 +9,12 @@ git_current_branch() {
   echo $(git branch 2>/dev/null | grep '*' | awk '{print $2}')
 }
 
+# Delete a local and remote branch of the same name.
+git_del() {
+  git branch -D $1
+  git push origin ":${1}"
+}
+
 # Delete all my remote branches.
 git_del_remotes() {
   for branch in $(git branch --remote | grep --color=never $USER); do
