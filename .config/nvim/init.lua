@@ -166,7 +166,8 @@ local lazyPlugins = {
 }
 
 -- Load the Lazy plugin manager.
-if not vim.loop.fs_stat(lazyDataPath) then
+if not vim.loop.fs_stat(lazyDataPath .. "README.md") then
+  -- Lazy needs to be downloaded.
   vim.fn.system({
     "git",
     "clone",
