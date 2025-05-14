@@ -201,6 +201,7 @@ require("conform").setup({
     erlang = {"erlfmt"},
     go = {"gofmt"},
     python = {"black", "isort"},
+    sh = {"shfmt"},
   },
   format_on_save = function(buf)
     if  vim.b[buf].disable_autoformat or vim.g.disable_autoformat then
