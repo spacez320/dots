@@ -202,6 +202,7 @@ require("conform").setup({
     go = {"gofmt"},
     python = {"black", "isort"},
     sh = {"shfmt"},
+    typescript = {"prettier"},
   },
   format_on_save = function(buf)
     if  vim.b[buf].disable_autoformat or vim.g.disable_autoformat then
