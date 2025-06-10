@@ -2,24 +2,39 @@
 #
 # Helper utilities for the priv store.
 
-# Figure out a current available priv mount.
-priv() {
-  for mount in axios deontos eidos heiros; do
-    if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
-      echo "${HOME}/mnt/${mount}"
-      return
-    fi
-  done
+declare -A PRIV_MOUNTS
+PRIV_MOUNTS[axios]="${HOME}/mnt/axios"
+PRIV_MOUNTS[deontos]="${HOME}/mnt/deontos"
+PRIV_MOUNTS[eidos]="${HOME}/mnt/eidos"
+PRIV_MOUNTS[heiros]="${HOME}/mnt/heiros"
+PRIV_MOUNTS[pragmata]="${HOME}/mnt/pragmata/priv"
 
-  for mount in pragmata; do
-    if mountpoint "${HOME}/mnt/${mount}" &> /dev/null; then
-      echo "${HOME}/mnt/${mount}/priv"
-      return
-    fi
-  done
+# Figure out a current available priv mount
+priv() {
+  local desired_mount=
+  local found_mount=
+
+  if (($# > 0)); then
+    desired_mount="${1}"
+  fi
+
+  if [[ -n "${desired_mount}" ]]; then
+    # We supplied a priv mount to use
+    found_mount="${PRIV_MOUNTS[$desired_mount]}"
+  else
+    # We should find a priv mount
+    for mount in "${!PRIV_MOUNTS[@]}"; do
+      if [[ -d "${PRIV_MOUNTS[$mount]}/pass" ]]; then
+        found_mount="${PRIV_MOUNTS[$mount]}"
+        break
+      fi
+    done
+  fi
+
+  export PRIV="${found_mount}"
+  export GNUPGHOME="${PRIV}/gnupg"
+  export PASSWORD_STORE_DIR="${PRIV}/pass"
 }
 
-export PRIV=`priv`
-export PASSWORD_STORE_DIR="${PRIV}/pass"
-
-alias gpg='gpg --homedir $PRIV/gnupg'
+# Initial invocation
+priv
