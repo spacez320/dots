@@ -1,5 +1,6 @@
 /*
 /*/
 !/.env.d
+/.env.d/beacon
 /.env.d/secret
 !/.rc.d

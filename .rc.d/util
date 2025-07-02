@@ -4,9 +4,9 @@
 
 # Find large files under a directory.
 duf() {
-  if (( $# < 1 )); then
-    echo "Usage: duf <path>";
-    return 1;
+  if (($# < 1)); then
+    echo "Usage: duf <path>"
+    return 1
   fi
 
   find $1 -type f -exec du -h {} \; | sort -h -r | head -n 20
@@ -14,9 +14,9 @@ duf() {
 
 # JSON friendly cURL call.
 jcurl() {
-  if (( $# < 1 )); then
-    echo "Usage: jcurl <url>";
-    return 1;
+  if (($# < 1)); then
+    echo "Usage: jcurl <url>"
+    return 1
   fi
 
   curl --header "Accept: application/json" --silent $1 | jq
@@ -27,7 +27,7 @@ json2yaml() {
   python -c "
 import json, yaml, sys;
 yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)" < \
-  $1 > $2
+    $1 >$2
 }
 
 update_ps1() {
@@ -41,9 +41,9 @@ update_ps1() {
 
 # Open a TCP port on the default interface.
 open_port() {
-  if (( $# < 1 )); then
-    echo "Usage: fwopen <port>";
-    return 1;
+  if (($# < 1)); then
+    echo "Usage: fwopen <port>"
+    return 1
   fi
 
   sudo firewall-cmd --add-port="${1}/tcp"
@@ -52,7 +52,7 @@ open_port() {
 
 # Pause for a keystroke.
 pause() {
-  if grep 'bash' <<< $(echo $SHELL); then
+  if grep 'bash' <<<$(echo $SHELL); then
     read -p "Press enter to continue."
   else
     read \?"Press enter to continue."
@@ -61,9 +61,9 @@ pause() {
 
 # Find all files with names containing a string.
 search() {
-  if (( $# < 1 )); then
-    echo "Usage: search <thing>";
-    return 1;
+  if (($# < 1)); then
+    echo "Usage: search <thing>"
+    return 1
   fi
 
   find . -name "*$1*"
@@ -71,10 +71,40 @@ search() {
 
 # Start a file server.
 serve() {
-  if (( $# < 1 )); then
-    echo "Usage: serve <port>";
-    return 1;
+  if (($# < 1)); then
+    echo "Usage: serve <port>"
+    return 1
   fi
 
   python -m http.server -b 0.0.0.0 -d . $1
+}
+
+# Loop-driven watch
+lwatch() {
+  while true; do
+    clear
+    echo "Every 10.0s: ${@}"
+    echo "$(date)"
+    echo
+    $@
+    sleep 10
+  done
+}
+
+# Perform a search across YAML files with yq syntax.
+yqrep() {
+  if (($# < 1)); then
+    echo "Usage: yqrep <query>"
+    return 1
+  fi
+
+  local files=$(find . -name '*.yaml')
+  for f in $files; do
+    local yq_eval=$(yq --colors eval "${1}" "${f}")
+    if [[ $yq_eval != "" ]]; then
+      echo $f
+      echo "${yq_eval}"
+      echo
+    fi
+  done
 }
