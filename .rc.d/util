@@ -2,6 +2,17 @@
 #
 # General utility functions.
 
+# Closes a TCP port on the default interface.
+close_port() {
+  if (( $# < 1 )); then
+    echo "Usage: fwopen <port>";
+    return 1;
+  fi
+
+  sudo firewall-cmd --remove-port="${1}/tcp"
+  sudo firewall-cmd --list-ports | grep $1
+}
+
 # Find large files under a directory.
 duf() {
   if (($# < 1)); then

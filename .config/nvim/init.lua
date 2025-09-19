@@ -206,7 +206,7 @@ lsp.jedi_language_server.setup({})
 require("conform").setup({
   formatters_by_ft = {
     erlang = {"erlfmt"},
-    go = {"gofmt"},
+    go = {"gofmt", "gofumpt"},
     python = {"black", "isort"},
     sh = {"shfmt"},
     typescript = {"prettier"},
