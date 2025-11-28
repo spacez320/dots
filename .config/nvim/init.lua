@@ -209,6 +209,7 @@ require("conform").setup({
     go = {"gofmt", "gofumpt"},
     python = {"black", "isort"},
     sh = {"shfmt"},
+    terraform = {"terraform_fmt"},
     typescript = {"prettier"},
   },
   format_on_save = function(buf)
