@@ -200,11 +200,15 @@ require("trouble").setup({})
 local lsp = require("lspconfig")
 lsp.gopls.setup({})
 lsp.jedi_language_server.setup({})
+lsp.elixirls.setup({
+  cmd = {"/home/matthew/lib/elixirls/language_server.sh"}
+})
 
 --- Set-up conform.
 
 require("conform").setup({
   formatters_by_ft = {
+    elixir = {"mix_format"},
     erlang = {"erlfmt"},
     go = {"gofmt", "gofumpt"},
     python = {"black", "isort"},
@@ -216,8 +220,14 @@ require("conform").setup({
     if  vim.b[buf].disable_autoformat or vim.g.disable_autoformat then
       return
     end
-    return { lsp_fallback = true, timeout_ms = 500 }
+    return { lsp_fallback = true, timeout_ms = 2000 }
   end,
+  formatters = {
+    mix_format = {
+      command = "mix",
+      args = {"format", "-"}
+    }
+  }
 })
 
 vim.api.nvim_create_user_command("FormatOff", function(args)
