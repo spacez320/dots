@@ -47,7 +47,6 @@ key = "N"
 mods = "Control"
 
 [window]
-decorations = "none"
 dynamic_title = true
 opacity = 0.95
 startup_mode = "windowed"
