@@ -23,17 +23,17 @@ git_del_remotes() {
   done
 }
 
-# Generate a full-indexed diff between the current branch and master.
+# Generate a full-indexed diff between the current branch and main.
 git_gen_patch() {
-  local repo=$(basename `git rev-parse --show-toplevel`)
+  local repo=$(basename $(git rev-parse --show-toplevel))
   local lbranch=$(git_current_branch)
 
-  for i in master $lbranch; do
-    git checkout $i && git pull --rebase origin master
+  for i in main $lbranch; do
+    git checkout $i && git pull --rebase origin main
   done
 
   mkdir --parents $GIT_PATCHES_DIR
 
-  git diff --full-index master..$lbranch > \
+  git diff --full-index main..$lbranch > \
     "${GIT_PATCHES_DIR}/${repo}_${lbranch}.patch"
 }
