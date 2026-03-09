@@ -211,7 +211,8 @@ require("conform").setup({
     elixir = {"mix_format"},
     erlang = {"erlfmt"},
     go = {"gofmt", "gofumpt"},
-    python = {"black", "isort"},
+    julia = {"runic"},
+    python = {"ruff_fix","ruff_format","ruff_organize_imports"},
     sh = {"shfmt"},
     terraform = {"terraform_fmt"},
     typescript = {"prettier"},
@@ -251,7 +252,7 @@ end, {
 --- Set-up nvim-lint.
 
 require("lint").linters_by_ft = {
-  python = {"flake8"},
+  python = {"ruff"},
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
