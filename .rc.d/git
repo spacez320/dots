@@ -31,9 +31,4 @@ git_gen_patch() {
   for i in main $lbranch; do
     git checkout $i && git pull --rebase origin main
   done
-
-  mkdir --parents $GIT_PATCHES_DIR
-
-  git diff --full-index main..$lbranch > \
-    "${GIT_PATCHES_DIR}/${repo}_${lbranch}.patch"
 }
